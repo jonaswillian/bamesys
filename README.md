@@ -1,4 +1,4 @@
-bamesys
-=======
+BAMESYS
 
-Software de Controle Financeiro - Bamevap
+Software de Controle Financeiro
+v1.0
