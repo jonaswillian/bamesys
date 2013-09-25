@@ -1,4 +1,4 @@
-package br.fatea.bamesys
+package bamesys
 class Usuario {
 	int id
 	String nome
