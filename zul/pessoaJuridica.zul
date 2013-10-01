@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+   
+
+
+    <window apply="bamesys_lucas.PessoaJuridicaComposer">
+         
+         <style dynamic="true">
+			.mydb {
+			border: 1px solid gray;
+		     }
+		     .labelb{
+		     font:18px bold;
+		     
+		     }
+		     
+		   	     
+         </style>
+         
+    <div id="wLista">
+         <hlayout>
+           <grid width="1050px" style="border: 1px; margin-left:10%;">
+             <rows>
+               <row>
+                   <button id="btnNovo" image="/images/skin/user1_add.png" label="Inserir"/>
+               </row>
+             </rows>
+              
+           </grid>
+         </hlayout>         
+         
+         <separator> </separator>
+         <hlayout>
+	   		<listbox id="lstUsuarios" emptyMessage="Nenhum Usuário Cadastrado" 
+				multiple="true" checkmark="false" mold="paging" pageSize="10" 
+				width="1050px" style="border: 6px solid #f1f1f1; margin-left:10%;"> 	
+				<listhead>
+        			<listheader sort="auto" label="Id" />
+        			<listheader sort="auto" label="Nome" />
+        			<listheader sort="auto" label="Grupo" />
+        			<listheader sort="auto" label="Login" />
+        			<listheader sort="auto" label="Ações" />
+        		</listhead>				
+			</listbox>
+    	</hlayout>
+    	
+    </div>
+         <separator> </separator>
+         <separator> </separator>
+         <separator> </separator>   
+          
+    <div id="wCadastro">  
+      <hlayout>                     				
+	    <grid width="1050px" style="border: 6px solid #f1f1f1; margin-left:10%;">
+	     <columns> <column label="PESSOA JURÍDICA" width="250px" sclass="labelb" /> </columns>
+	     <rows>
+	   
+	    <row>
+		<hlayout> <label value="Filial:" sclass="labelb" /> </hlayout>
+		<hlayout>  <label value="Representante:" sclass="labelb"/>	</hlayout>
+		<hlayout>  <label value="Atendente:" sclass="labelb"/>	</hlayout>
+		</row>
+		 	
+		<row>
+		<hlayout><textbox width="200px" sclass="mydb"/> </hlayout>
+		<hlayout><textbox width="300px" sclass="mydb"/> </hlayout>
+		<hlayout><textbox width="300px" sclass="mydb"/> </hlayout>
+		</row>		
+        
+        <row> <label value=" " /></row>		
+       	
+		</rows>
+    </grid>
+   
+  </hlayout>
+   
+   <hlayout>
+                            
+	<grid width="1050px" style="border: 6px solid #f1f1f1; margin-left:10%;">
+	<columns><column label="CARACTERIZAÇÃO DA EMPRESA" width="250px" sclass="labelb"/></columns>
+	
+	<rows>
+		<row>		
+	    <hlayout> <label value="Razão Social:" sclass="labelb" /> </hlayout>
+		<hlayout> <label value="CNPJ:" sclass="labelb"/> </hlayout>
+		<hlayout>  <label value="Fantasia:" sclass="labelb"/> </hlayout>
+		 </row>
+	    
+	    <row>
+		<hlayout> <textbox width="230px" sclass="mydb" /> </hlayout>
+		<hlayout> <textbox width="170px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="240px" sclass="mydb"/></hlayout>
+		<hlayout> <label value=" "       /> </hlayout>
+		</row>
+		
+		<row>		
+	    <hlayout> <label value="Inscrição Estadual:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="Inscrição Municipal:" sclass="labelb"/> </hlayout>
+		<hlayout> <label value="Endereço:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="Número:" sclass="labelb"/> </hlayout>
+		
+     	</row>
+		
+		<row>
+		<hlayout> <textbox width="170px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox width="170px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox width="240px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox width="100px" sclass="mydb"/> </hlayout>		
+		</row>
+	
+	    <row>			    
+     	<hlayout> <label value="Complemento:"  sclass="labelb"/> </hlayout>
+     	<hlayout> <label value="Bairro:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="CEP:" sclass="labelb"/> </hlayout>  
+		<hlayout> <label value="Cidade:" sclass="labelb"/> </hlayout>
+		</row>
+	
+	    <row>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="120px"  sclass="mydb"/></hlayout>
+		<hlayout>  <textbox width="200px" sclass="mydb"/></hlayout>
+		</row>
+	
+	    <row>			    
+     	<hlayout> <label value="Estado:"  sclass="labelb"/> </hlayout>
+     	<hlayout> <label value="Telefone:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="Fax:" sclass="labelb"/> </hlayout>  
+		<hlayout> <label value="Email:" sclass="labelb"/> </hlayout>
+		</row>
+	
+	    <row>
+		<hlayout> <textbox width="100px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox id="tel" width="200px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="200px" sclass="mydb"/></hlayout>
+		<hlayout>  <textbox width="240px" constraint="/.+@.+\.[a-z]+/: Please enter an e-mail address" sclass="mydb"/></hlayout>
+		</row>
+		
+	
+	    <row>			    
+     	<hlayout> <label value="Website:"  sclass="labelb"/> </hlayout>
+     	<hlayout> <label value="Contador responsável:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="Registro CRC:" sclass="labelb"/> </hlayout>  
+		<hlayout> <label value="Telefone do Contador:" sclass="labelb"/> </hlayout>
+		</row>
+	
+	    <row>
+		<hlayout> <textbox width="230px" sclass="mydb" /> </hlayout>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="170px" sclass="mydb"/></hlayout>
+		<hlayout>  <textbox width="170px" sclass="mydb"/></hlayout>
+		</row>
+	
+	    <row>			    
+     	<hlayout> <label value="Atividade Principal:"  sclass="labelb"/> </hlayout>
+     	<hlayout> <label value="% Vendas:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="Faturamento Último mês:" sclass="labelb"/> </hlayout>  
+		<hlayout> <label value="Faturamento Últimos 12 meses:" sclass="labelb"/> </hlayout>
+		</row>
+	
+	    <row>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox width="100px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="100px" sclass="mydb"/></hlayout>
+		<hlayout>  <textbox width="100px" sclass="mydb"/></hlayout>
+		</row>
+	
+	    <row>			    
+     	<hlayout> <label value="Contato na Empresa:"  sclass="labelb"/> </hlayout>
+     	<hlayout> <label value="Cargo:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="Sociedade:" sclass="labelb"/> </hlayout>  
+		<hlayout> <label value="Data da Constituição:" sclass="labelb"/> </hlayout>
+		</row>
+	
+	    <row>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="230px" sclass="mydb"/></hlayout>
+		<hlayout>  <datebox id="db1" width="150px" sclass="mydb"/></hlayout>
+		</row>
+	
+	    <row>		
+	    <hlayout> <label value="Capital Integralizado:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="Data Última Alteração:" sclass="labelb"/> </hlayout>
+		<hlayout>  <label value="Número de Sócios:" sclass="labelb"/> </hlayout>
+		 </row>
+	    
+	    <row>
+		<hlayout> <textbox width="200px" sclass="mydb"/> </hlayout>
+		<hlayout> <datebox id="db2" width="150px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="100px" sclass="mydb"/></hlayout>
+		<hlayout> <label value=" "       /> </hlayout>
+		</row>
+	
+		<row>		
+	    <hlayout> <label value="Possui Filiais:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="Número de Filiais:" sclass="labelb"/> </hlayout>
+		<hlayout>  <label value="Número de Funcionários:" sclass="labelb"/> </hlayout>
+		 </row>
+	    
+	    <row>
+		<hlayout> 
+		    <combobox>
+		    <comboitem label="Sim" />
+		    <comboitem label="Não" />
+		    </combobox> 
+		</hlayout>
+		<hlayout> <textbox width="100px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="100px" sclass="mydb"/></hlayout>
+		<hlayout> <label value=" "       /> </hlayout>
+		</row>
+		
+		<row> <label value=" " /></row>		
+	
+	</rows>
+  </grid>
+			    		             
+</hlayout>	         
+
+
+ <hlayout>                            
+	<grid width="1050px" style="border: 6px solid #f1f1f1; margin-left:10%;">
+	  <columns><column label="REPRESENTANTE(S) LEGAL(IS)" width="250px" sclass="labelb"/></columns>
+	   <rows>				
+	    <row>			    
+     	<hlayout> <label value="Representante 1:" sclass="labelb" /> </hlayout>
+     	<hlayout> <label value="Representante 2:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="Representante 3:" sclass="labelb"/> </hlayout>  
+		<hlayout> <label value="Assinatura:" sclass="labelb"/> </hlayout>
+		</row>
+	
+	    <row>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="230px" sclass="mydb"/></hlayout>
+		<hlayout>  <textbox width="240px" sclass="mydb"/></hlayout>
+		</row>		
+			
+			<row> <label value=" " /></row>	
+			
+      </rows>
+	</grid>
+</hlayout>
+				
+	
+	<hlayout>                            
+	<grid width="1050px" style="border: 6px solid #f1f1f1; margin-left:10%;">
+	  <columns><column label="PRINCIPAIS COTISTAS" width="250px" sclass="labelb"/></columns>
+	   <rows>				
+	    <row>			    
+     	<hlayout> <label value="Nome:" sclass="labelb" /> </hlayout>
+     	<hlayout> <label value="CNPJ/CPF:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="%:" sclass="labelb"/> </hlayout>  
+		<hlayout> <label value="Valor:" sclass="labelb"/> </hlayout>
+		</row>
+	
+	    <row>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox width="170px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="100px" sclass="mydb"/></hlayout>
+		<hlayout>  <textbox width="140px" sclass="mydb"/></hlayout>
+		</row>		
+		
+		 <row>			    
+     	<hlayout> <label value="Nome:" sclass="labelb" /> </hlayout>
+     	<hlayout> <label value="CNPJ/CPF:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="%:" sclass="labelb"/> </hlayout>  
+		<hlayout> <label value="Valor:" sclass="labelb"/> </hlayout>
+		</row>
+	
+	    <row>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox width="170px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="100px" sclass="mydb"/></hlayout>
+		<hlayout>  <textbox width="140px" sclass="mydb"/></hlayout>
+		</row>
+		
+		 <row>			    
+     	<hlayout> <label value="Nome:" sclass="labelb" /> </hlayout>
+     	<hlayout> <label value="CNPJ/CPF:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="%:" sclass="labelb"/> </hlayout>  
+		<hlayout> <label value="Valor:" sclass="labelb"/> </hlayout>
+		</row>
+	
+	    <row>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox width="170px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="100px" sclass="mydb"/></hlayout>
+		<hlayout>  <textbox width="140px" sclass="mydb"/></hlayout>
+		</row>
+			
+			<row> <label value=" " /></row>	
+			
+      </rows>
+	</grid>
+</hlayout>
+	
+	<hlayout>                            
+	<grid width="1050px" style="border: 6px solid #f1f1f1; margin-left:10%;">
+	  <columns><column label="INFORMAÇÕES BANCÁRIAS" width="250px" sclass="labelb"/></columns>
+	   <rows>				
+	    <row>			    
+     	<hlayout> <label value="Banco Nº:" sclass="labelb" /> </hlayout>
+     	<hlayout> <label value="Nome do Banco:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="Agência Nº:" sclass="labelb"/> </hlayout>  
+		<hlayout> <label value="Conta Corrente:" sclass="labelb"/> </hlayout>
+		</row>
+	
+	    <row>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="170px" sclass="mydb"/></hlayout>
+		<hlayout>  <textbox width="170px" sclass="mydb"/></hlayout>
+		</row>		
+			
+		<row>			    
+     	<hlayout> <label value="Data de Abertura:" sclass="labelb" /> </hlayout>
+     	<hlayout> <label value="Telefone do Banco:"  sclass="labelb"/> </hlayout>
+		</row>
+	
+	    <row>
+		<hlayout> <datebox id="db4" width="150px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox width="170px" sclass="mydb"/> </hlayout>
+		<hlayout> <label value=" "       /> </hlayout>
+		<hlayout> <label value=" "       /> </hlayout>
+		</row>			
+			
+			
+			<row> <label value=" " /></row>	
+			
+      </rows>
+	</grid>
+</hlayout>
+
+ <hlayout>                            
+	<grid width="1050px" style="border: 6px solid #f1f1f1; margin-left:10%;">
+	  <columns><column label="REFÊRENCIAS" width="250px" sclass="labelb"/></columns>
+	   <rows>				
+	    <row>			    
+     	<hlayout> <label value="Fornecedor/Parceiro:" sclass="labelb" /> </hlayout>
+     	<hlayout> <label value="CNPJ/CPF:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="Telefone:" sclass="labelb"/> </hlayout>  
+		</row>
+	
+	    <row>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox width="170px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="170px" sclass="mydb"/></hlayout>
+		<hlayout> <label value=" "       /> </hlayout>
+		</row>		
+		
+		<row>			    
+     	<hlayout> <label value="Fornecedor/Parceiro:" sclass="labelb" /> </hlayout>
+     	<hlayout> <label value="CNPJ/CPF:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="Telefone:" sclass="labelb"/> </hlayout>  
+		</row>
+	
+	    <row>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox width="170px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="170px" sclass="mydb"/></hlayout>
+		<hlayout> <label value=" "       /> </hlayout>
+		</row>		
+		
+		<row>			    
+     	<hlayout> <label value="Fornecedor/Parceiro:" sclass="labelb" /> </hlayout>
+     	<hlayout> <label value="CNPJ/CPF:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="Telefone:" sclass="labelb"/> </hlayout>  
+		</row>
+	
+	    <row>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox width="170px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="170px" sclass="mydb"/></hlayout>
+		<hlayout> <label value=" "       /> </hlayout>
+		</row>		
+			
+		<row>			    
+     	<hlayout> <label value="Fornecedor/Parceiro:" sclass="labelb" /> </hlayout>
+     	<hlayout> <label value="CNPJ/CPF:"  sclass="labelb"/> </hlayout>
+		<hlayout> <label value="Telefone:" sclass="labelb"/> </hlayout>  
+		</row>
+	
+	    <row>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox width="170px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="170px" sclass="mydb"/></hlayout>
+		<hlayout> <label value=" "       /> </hlayout>
+		</row>	
+			
+			<row> <label value=" " /></row>	
+			
+      </rows>
+	</grid>
+</hlayout>
+
+<hlayout>                            
+	<grid width="1050px" style="border: 6px solid #f1f1f1; margin-left:10%;">
+	  <columns><column label="DADOS PARA ACESSO" width="250px" sclass="labelb"/></columns>
+	   <rows>				
+	    <row>			    
+     	<hlayout> <label value="Login:" sclass="labelb" /> </hlayout>
+     	<hlayout> <label value="Senha:"  sclass="labelb" width="350"/> </hlayout>
+		<hlayout> <label value="Senha Restrita (Acesso à movimentação):" sclass="labelb"/> </hlayout>  
+		
+		</row>
+	
+	    <row>
+		<hlayout> <textbox width="230px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox width="180px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox width="180px" sclass="mydb"/></hlayout>
+		</row>		
+			
+					   
+			<row align="right"> 
+		       <hlayout> <label value=" " /> </hlayout>
+		       <hlayout> <label value=" " /> </hlayout>
+		       <hlayout> <button label="Salvar dados" width="350"/> </hlayout>
+			</row>
+			
+			<row> 
+			<label value=" " />
+			<label value=" " />
+			<label value=" " />
+			</row>	
+			
+       </rows>
+	 </grid>
+    </hlayout>
+  </div>
+  </window>    
+</zk>
