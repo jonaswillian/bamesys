@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css"?>
+<?page title="Gerenciamento de Pessoa Jurídica" ?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul"
     xmlns:h="http://www.w3.org/1999/xhtml"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    
     xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
    
@@ -61,20 +65,23 @@
 	    <grid width="1050px" style="border: 6px solid #f1f1f1; margin-left:10%;">
 	     <columns> <column label="PESSOA JURÍDICA" width="250px" sclass="labelb" /> </columns>
 	     <rows>
-	   
-	    <row>
+	  	
+	    <row>	    
 		<hlayout> <label value="Filial:" sclass="labelb" /> </hlayout>
 		<hlayout>  <label value="Representante:" sclass="labelb"/>	</hlayout>
 		<hlayout>  <label value="Atendente:" sclass="labelb"/>	</hlayout>
 		</row>
 		 	
 		<row>
-		<hlayout><textbox id="pj_filial" width="200px" sclass="mydb"/> </hlayout>
-		<hlayout><textbox id="pj_representante" width="300px" sclass="mydb"/> </hlayout>
-		<hlayout><textbox id="pj_atendente" width="300px" sclass="mydb"/> </hlayout>
+		<hlayout><textbox id="filial" width="200px" sclass="mydb"/> </hlayout>
+		<hlayout><textbox id="representante" width="300px" sclass="mydb"/> </hlayout>
+		<hlayout><textbox id="atendente" width="300px" sclass="mydb"/> </hlayout>
 		</row>		
         
-        <row> <label value=" " /></row>		
+        <row>  
+	  	  <hlayout> <label value="Código:" visible="false" /> </hlayout>
+	  	  <hlayout><intbox  id="id" value="0" visible="false" /></hlayout>
+	    </row>	
        	
 		</rows>
     </grid>
@@ -94,9 +101,9 @@
 		 </row>
 	    
 	    <row>
-		<hlayout> <textbox id="pj_razao_social" width="230px" sclass="mydb" /> </hlayout>
-		<hlayout> <textbox id="pj_cnpj" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="pj_fantasia" width="240px" sclass="mydb"/></hlayout>
+		<hlayout> <textbox id="razaosocial" width="210px" sclass="mydb" /> </hlayout>
+		<hlayout> <textbox id="cnpj" width="170px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox id="fantasia" width="240px" sclass="mydb"/></hlayout>
 		<hlayout> <label value=" "       /> </hlayout>
 		</row>
 		
@@ -109,10 +116,10 @@
      	</row>
 		
 		<row>
-		<hlayout> <textbox id="pj_ie" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="pj_im" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="pj_endereco" width="240px" sclass="mydb"/> </hlayout>
-		<hlayout> <intbox id="pj_numero" width="100px" sclass="mydb"/> </hlayout>		
+		<hlayout> <textbox id="ie" width="170px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox id="im" width="170px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox id="endereco" width="240px" sclass="mydb"/> </hlayout>
+		<hlayout> <intbox id="numero" width="100px" sclass="mydb"/> </hlayout>		
 		</row>
 	
 	    <row>			    
@@ -123,10 +130,10 @@
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="pj_complemento" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="pj_bairro" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="pj_cep" width="120px"  sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="pj_cidade" width="200px" sclass="mydb"/></hlayout>
+		<hlayout> <textbox id="complemento" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox id="bairro" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox id="cep" width="120px"  sclass="mydb"/></hlayout>
+		<hlayout>  <textbox id="cidade" width="200px" sclass="mydb"/></hlayout>
 		</row>
 	
 	    <row>			    
@@ -137,10 +144,10 @@
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="pj_estado" width="100px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="pj_telefone" width="200px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="pj_fax" width="200px" sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="pj_email" width="240px" constraint="/.+@.+\.[a-z]+/: Please enter an e-mail address" sclass="mydb"/></hlayout>
+		<hlayout> <textbox id="estado" width="100px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox id="telefone" width="200px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox id="fax" width="200px" sclass="mydb"/></hlayout>
+		<hlayout>  <textbox id="email" width="240px" constraint="/.+@.+\.[a-z]+/: Please enter an e-mail address" sclass="mydb"/></hlayout>
 		</row>
 		
 	
@@ -152,10 +159,10 @@
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="pj_website" width="230px" sclass="mydb" /> </hlayout>
-		<hlayout> <textbox id="pj_contador_respons" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="pj_reg_crc" width="170px" sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="pj_tel_contador" width="170px" sclass="mydb"/></hlayout>
+		<hlayout> <textbox id="website" width="210px" sclass="mydb" /> </hlayout>
+		<hlayout> <textbox id="contador" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox id="crc" width="170px" sclass="mydb"/></hlayout>
+		<hlayout>  <textbox id="telefonecontador" width="170px" sclass="mydb"/></hlayout>
 		</row>
 	
 	    <row>			    
@@ -166,10 +173,10 @@
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="pj_ativ_principal" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout> <intbox id="pj_porc_vendas" width="100px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="pj_fat_ultimo_mes" width="100px" sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="pj_fat_ultimos_12_meses" width="100px" sclass="mydb"/></hlayout>
+		<hlayout> <textbox id="atividadeprincipal" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout> <intbox id="porcentagemvendas" width="100px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox id="faturamentoultimomes" width="100px" sclass="mydb"/></hlayout>
+		<hlayout>  <textbox id="faturamentoultimos12meses" width="100px" sclass="mydb"/></hlayout>
 		</row>
 	
 	    <row>			    
@@ -180,10 +187,10 @@
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="pj_contato_empresa" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="pj_cargo" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="pj_sociedade" width="230px" sclass="mydb"/></hlayout>
-		<hlayout>  <datebox id="pj_data_constituicao" width="150px" sclass="mydb"/></hlayout>
+		<hlayout> <textbox id="nomecontato" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox id="cargocontato" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox id="sociedade" width="210px" sclass="mydb"/></hlayout>
+		<hlayout>  <datebox id="dataconstituicao" width="150px" format="yyyy-MM-dd" constraint="no empty, no future: now or never" sclass="mydb"/></hlayout>
 		</row>
 	
 	    <row>		
@@ -193,9 +200,9 @@
 		 </row>
 	    
 	    <row>
-		<hlayout> <textbox id="pj_capital_int" width="200px" sclass="mydb"/> </hlayout>
-		<hlayout> <datebox id="pj_data_ultima_alter" width="150px" sclass="mydb"/> </hlayout>
-		<hlayout>  <intbox id="pj_num_socios" width="100px" sclass="mydb"/></hlayout>
+		<hlayout> <textbox id="capital" width="200px" sclass="mydb"/> </hlayout>
+		<hlayout> <datebox id="dataultimaalteracao" width="150px" format="yyyy-MM-dd" constraint="no empty, no future: now or never" sclass="mydb"/> </hlayout>
+		<hlayout>  <intbox id="nsocios" width="100px" sclass="mydb"/></hlayout>
 		<hlayout> <label value=" "       /> </hlayout>
 		</row>
 	
@@ -207,13 +214,13 @@
 	    
 	    <row>
 		<hlayout> 
-		    <combobox id="pj_possui_filiais">
+		    <combobox id="possuifiliais" width="130px">
 		    <comboitem label="Sim" />
 		    <comboitem label="Não" />
 		    </combobox> 
 		</hlayout>
-		<hlayout> <intbox id="pj_num_filiais" width="100px" sclass="mydb"/> </hlayout>
-		<hlayout>  <intbox id="pj_num_funcionarios" width="100px" sclass="mydb"/></hlayout>
+		<hlayout> <intbox id="nfiliais" width="100px" sclass="mydb"/> </hlayout>
+		<hlayout>  <intbox id="nfuncionarios" width="100px" sclass="mydb"/></hlayout>
 		<hlayout> <label value=" "       /> </hlayout>
 		</row>
 		
@@ -237,10 +244,10 @@
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="pj_repres1" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="pj_repres2" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="pj_repres3" width="230px" sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="pj_assinatura" width="240px" sclass="mydb"/></hlayout>
+		<hlayout> <intbox id="id_representante1" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout> <intbox id="id_representante2" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout> <intbox id="id_representante3" width="210px" sclass="mydb"/></hlayout>
+		<hlayout> <textbox id="assinatura" width="240px" sclass="mydb"/></hlayout>
 		</row>		
 			
 			<row> <label value=" " /></row>	
@@ -262,10 +269,10 @@
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="pj_nome_cotista" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="pj_cnpj_cotista" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout>  <intbox id="pj_porc_cotista" width="100px" sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="pj_valor_cotista" width="140px" sclass="mydb"/></hlayout>
+		<hlayout> <textbox id="cotista1" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox id="documento1" width="170px" sclass="mydb"/> </hlayout>
+		<hlayout>  <intbox id="porcentagem1" width="100px" sclass="mydb"/></hlayout>
+		<hlayout>  <textbox id="valor1" width="140px" sclass="mydb"/></hlayout>
 		</row>		
 		
 		 <row>			    
@@ -276,10 +283,10 @@
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="pj_nome2_cotista" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="pj_cnpj2_cotista" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="pj_porc2_cotista" width="100px" sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="pj_valor2_cotista" width="140px" sclass="mydb"/></hlayout>
+		<hlayout> <textbox id="cotista2" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox id="documento2" width="170px" sclass="mydb"/> </hlayout>
+		<hlayout>  <intbox id="porcentagem2" width="100px" sclass="mydb"/></hlayout>
+		<hlayout>  <textbox id="valor2" width="140px" sclass="mydb"/></hlayout>
 		</row>
 		
 		 <row>			    
@@ -290,10 +297,10 @@
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="pj_nome3_cotista" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="pj_cnpj3_cotista" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="pj_porc3_cotista" width="100px" sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="pj_valor3_cotista" width="140px" sclass="mydb"/></hlayout>
+		<hlayout> <textbox id="cotista3" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox id="documento3" width="170px" sclass="mydb"/> </hlayout>
+		<hlayout>  <intbox id="porcentagem3" width="100px" sclass="mydb"/></hlayout>
+		<hlayout>  <textbox id="valor3" width="140px" sclass="mydb"/></hlayout>
 		</row>
 			
 			<row> <label value=" " /></row>	
@@ -314,10 +321,10 @@
 		</row>
 	
 	    <row>
-		<hlayout> <intbox id="pj_banco_numero" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="pj_nome_banco" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="pj_agencia_numero" width="170px" sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="pj_conta_corrente" width="170px" sclass="mydb"/></hlayout>
+		<hlayout> <intbox id="nbanco" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox id="nomebanco" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox id="nagencia" width="170px" sclass="mydb"/></hlayout>
+		<hlayout>  <textbox id="contacorrente" width="170px" sclass="mydb"/></hlayout>
 		</row>		
 			
 		<row>			    
@@ -326,8 +333,8 @@
 		</row>
 	
 	    <row>
-		<hlayout> <datebox id="pj_data_abertura_banco" width="150px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="pj_banco_telefone" width="170px" sclass="mydb"/> </hlayout>
+		<hlayout> <datebox id="dataabertura" width="150px" format="yyyy-MM-dd" constraint="no empty, no future: now or never" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox id="telefonebanco" width="170px" sclass="mydb"/> </hlayout>
 		<hlayout> <label value=" "       /> </hlayout>
 		<hlayout> <label value=" "       /> </hlayout>
 		</row>			
@@ -350,9 +357,9 @@
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="pj_fornec_parceiro" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="pj_cnpj_fornec" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="pj_telefone_fornec" width="170px" sclass="mydb"/></hlayout>
+		<hlayout> <textbox id="ref1" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox id="docref1" width="170px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox id="foneref1" width="170px" sclass="mydb"/></hlayout>
 		<hlayout> <label value=" "       /> </hlayout>
 		</row>		
 		
@@ -363,9 +370,9 @@
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="pj_fornec_parceiro2" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="pj_cnpj_fornec2" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="pj_telefone_fornec2" width="170px" sclass="mydb"/></hlayout>
+		<hlayout> <textbox id="ref2" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox id="docref2" width="170px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox id="foneref2" width="170px" sclass="mydb"/></hlayout>
 		<hlayout> <label value=" "       /> </hlayout>
 		</row>		
 		
@@ -376,9 +383,9 @@
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="pj_fornec_parceiro3" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="pj_cnpj_fornec3" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="pj_telefone_fornec3" width="170px" sclass="mydb"/></hlayout>
+		<hlayout> <textbox id="ref3" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox id="docref3" width="170px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox id="foneref3" width="170px" sclass="mydb"/></hlayout>
 		<hlayout> <label value=" "       /> </hlayout>
 		</row>		
 			
@@ -389,9 +396,9 @@
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="pj_fornec_parceiro4" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="pj_cnpj_fornec4" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="pj_telefone_fornec4" width="170px" sclass="mydb"/></hlayout>
+		<hlayout> <textbox id="ref4" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox id="docref4" width="170px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox id="foneref4" width="170px" sclass="mydb"/></hlayout>
 		<hlayout> <label value=" "       /> </hlayout>
 		</row>	
 			
@@ -413,9 +420,9 @@
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="pj_login" width="230px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="pj_senha" width="180px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="pj_senha_restrita" width="180px" sclass="mydb"/></hlayout>
+		<hlayout> <textbox id="login" width="210px" sclass="mydb"/> </hlayout>
+		<hlayout> <textbox id="senha"  type="password" width="180px" sclass="mydb"/> </hlayout>
+		<hlayout>  <textbox id="senharestrita"  type="password" width="180px" sclass="mydb"/></hlayout>
 		</row>		
 			
 					   
@@ -439,17 +446,31 @@
     </hlayout>
   </div>
   
-  <script type="text/javascript">
+  <script type="text/javascript" src="/js/jquery.maskedinput.js"></script>
+   <script type="text/javascript">
         zk.afterMount(function() {
-                         
-            $.mask.definitions['A']='[A-Z]';
-            $.mask.definitions['m']='[01]';
-            $.mask.definitions['d']='[0123]';
-            $.mask.definitions['y']='[12]';
-             
-            jq("$pj_telefone").mask("(999) 999-9999");
+                                     
+            jq("$cnpj").mask("99.999.999/9999-99"); 
+            jq("$ie").mask("999.999.999.999");
+            jq("$im").mask("9.999.999-9")
+            jq("$telefone").mask("(99)9999-9999");
+            jq("$fax").mask("(99)9999-9999");
+            jq("$telefonecontador").mask("(99)9999-9999");
+            jq("$documento1").mask("99.999.999/9999-99"); 
+            jq("$documento2").mask("99.999.999/9999-99"); 
+            jq("$documento3").mask("99.999.999/9999-99"); 
+            jq("$telefonebanco").mask("(99)9999-9999");
+            jq("$foneref1").mask("(99)9999-9999");
+            jq("$foneref2").mask("(99)9999-9999");
+            jq("$foneref3").mask("(99)9999-9999");
+            jq("$foneref4").mask("(99)9999-9999");
+            jq("$docref1").mask("99.999.999/9999-99");
+            jq("$docref2").mask("99.999.999/9999-99");
+            jq("$docref3").mask("99.999.999/9999-99");
+            jq("$docref4").mask("99.999.999/9999-99");
             
         });
     </script>
+ 
   </window>    
 </zk>
