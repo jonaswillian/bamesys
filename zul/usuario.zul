@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css"?>
+<?page title="Gerenciamento de Usuários" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+		
+    <window apply="bamesys.UsuarioComposer">
+    	<separator></separator>
+    	<label value="Usuários" sclass="tituloFormulario" />        
+        				
+    	<div id="winLista" width="80%" style="position:fixed; top: 40px; left: 10px; z-index: 1000">
+			<toolbarbutton id="btnNovo" image="/images/skin/adicionar.png" label="Inserir" />
+			<separator> </separator>    		
+    		<listbox id="lstUsuarios" emptyMessage="Nenhum Usuário Cadastrado" 
+				multiple="true" checkmark="false" mold="paging" pageSize="10" vflex="1"> 	
+				<listhead>
+        			<listheader sort="auto" label="Id" />
+        			<listheader sort="auto" label="Nome" />
+        			<listheader sort="auto" label="Grupo" />
+        			<listheader sort="auto" label="Login" />
+        			<listheader sort="auto" label="Ações" />
+        		</listhead>				
+			</listbox>
+    	</div>
+    	
+		<div id="winCadastro" width="50%" style="position:fixed; top: 40px; left: 10px; z-index: 1000">	
+        	<grid width="450px">
+        		<columns>
+					<column width="200px" />
+					<column value=""/>
+				</columns>
+			
+				<rows>
+				<row>
+					<label value="Código: " visible="false" />
+					<intbox id="id" value="0" visible="false" />
+				</row>
+			
+				<row>
+					<label value="Nome: " />
+					<textbox id="nome" maxlength="100"/>					
+				</row>
+				
+				<row>
+					Grupo: 			
+					<combobox id="cmbGrupo" width="230px">
+						<comboitem label="Administrador" value="administrador"/>									
+						<comboitem label="Corretor" value="corretor"/>
+						<comboitem label="Funcionário" value="funcionario"/>
+						<comboitem label="Gerente" value="gerente"/>
+						<comboitem label="Operador" value="operador"/>
+					</combobox>
+				</row>				
+			
+				<row>
+					<label value="Login: " />
+					<textbox id="login" maxlength="100"/>					
+				</row>
+				
+				<row>
+					<label value="Senha: " />
+					<textbox id="senha" maxlength="100" type="password"/>
+				</row>
+			
+				<row>
+					<label value="Confirmar Senha: " />
+					<textbox id="confirmarSenha" maxlength="100" type="password" />
+				</row>
+											
+				</rows>
+			</grid>
+			
+			<separator> </separator>
+			
+			<hbox style="position:fixed; left: 30px">
+				<toolbarbutton id="btnSalvar" image="/images/skin/salvar.png" label="Salvar" />
+				<space spacing="20px" />
+				<toolbarbutton id="btnCancelar" image="/images/skin/cancelar.png" label="Cancelar" />			
+			</hbox>
+		</div>		
+    </window>
+</zk>

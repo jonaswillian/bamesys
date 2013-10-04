@@ -1,5 +1,6 @@
 package bamesys
-class Usuario {
+
+class Usuario {	
 	int id
 	String nome
 	String grupo
@@ -7,9 +8,8 @@ class Usuario {
 	String senha
 	
 	static constraints = {
-		id nullable:false, unique:true
 		nome nullable:false
-		grupo nullable:false
+		grupo nullable:false, inlist:["Administrador", "Corretor","Funcionário","Gerente","Operador"]
 		login nullable:false
 		senha nullable:false
     }
