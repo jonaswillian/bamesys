@@ -43,13 +43,14 @@
          <separator> </separator>
          <hlayout>
 	   		<listbox id="lstPJ" emptyMessage="Nenhum Usuário Cadastrado" 
-				multiple="true" checkmark="false" mold="paging" pageSize="10" 
+				
 				width="1050px" style="border: 6px solid #f1f1f1; margin-left:10%;"> 	
 				<listhead>
         			<listheader sort="auto" label="Id" />
         			<listheader sort="auto" label="Filial" />
         			<listheader sort="auto" label="Representante" />
         			<listheader sort="auto" label="Atendente" />
+        			<listheader sort="auto" label="" />
         			
         		</listhead>				
 			</listbox>
@@ -147,7 +148,7 @@
 		<hlayout> <textbox id="estado" width="100px" sclass="mydb"/> </hlayout>
 		<hlayout> <textbox id="telefone" width="200px" sclass="mydb"/> </hlayout>
 		<hlayout>  <textbox id="fax" width="200px" sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="email" width="240px" constraint="/.+@.+\.[a-z]+/: Please enter an e-mail address" sclass="mydb"/></hlayout>
+		<hlayout>  <textbox id="email" width="240px" sclass="mydb"/></hlayout>
 		</row>
 		
 	
@@ -190,7 +191,7 @@
 		<hlayout> <textbox id="nomecontato" width="210px" sclass="mydb"/> </hlayout>
 		<hlayout> <textbox id="cargocontato" width="210px" sclass="mydb"/> </hlayout>
 		<hlayout>  <textbox id="sociedade" width="210px" sclass="mydb"/></hlayout>
-		<hlayout>  <datebox id="dataconstituicao" width="150px" format="yyyy-MM-dd" constraint="no empty, no future: now or never" sclass="mydb"/></hlayout>
+		<hlayout>  <datebox id="dataconstituicao" width="150px" format="yyyy-MM-dd"  sclass="mydb"/></hlayout>
 		</row>
 	
 	    <row>		
@@ -201,7 +202,7 @@
 	    
 	    <row>
 		<hlayout> <textbox id="capital" width="200px" sclass="mydb"/> </hlayout>
-		<hlayout> <datebox id="dataultimaalteracao" width="150px" format="yyyy-MM-dd" constraint="no empty, no future: now or never" sclass="mydb"/> </hlayout>
+		<hlayout> <datebox id="dataultimaalteracao" width="150px" format="yyyy-MM-dd" sclass="mydb"/> </hlayout>
 		<hlayout>  <intbox id="nsocios" width="100px" sclass="mydb"/></hlayout>
 		<hlayout> <label value=" "       /> </hlayout>
 		</row>
@@ -215,6 +216,7 @@
 	    <row>
 		<hlayout> 
 		    <combobox id="possuifiliais" width="130px">
+		     <comboitem label="" />
 		    <comboitem label="Sim" />
 		    <comboitem label="Não" />
 		    </combobox> 
@@ -333,7 +335,7 @@
 		</row>
 	
 	    <row>
-		<hlayout> <datebox id="dataabertura" width="150px" format="yyyy-MM-dd" constraint="no empty, no future: now or never" sclass="mydb"/> </hlayout>
+		<hlayout> <datebox id="dataabertura" width="150px" format="yyyy-MM-dd" sclass="mydb"/> </hlayout>
 		<hlayout> <textbox id="telefonebanco" width="170px" sclass="mydb"/> </hlayout>
 		<hlayout> <label value=" "       /> </hlayout>
 		<hlayout> <label value=" "       /> </hlayout>
@@ -430,7 +432,7 @@
 		       <hlayout> <label value=" " /> </hlayout>
 		       <hlayout> <label value=" " /> </hlayout>
 		       <hlayout> 
-		       <button id="pj_btn_cancelar" label="Cancelar" width="350"/>
+		       <button id="pj_btn_cancelar" label="Voltar" width="350"/>
 		       <button id="pj_btn_salvar" label="Salvar dados" width="350"/>
 		       </hlayout>
 			</row>

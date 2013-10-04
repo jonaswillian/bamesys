@@ -3,7 +3,7 @@ package bamesys_lucas
 
 class PessoaJuridica {
 
-	int idpj
+	int id
 	String filial
 	String representante
 	String atendente
@@ -74,22 +74,95 @@ class PessoaJuridica {
 	String ref4
 	String docref4
 	String foneref4
-	Date datacadastro
-	Date dataatualizacao
+	String login
+	String senha
+	String senharestrita
 	
 		
 	
-	static hasOne=[pessoafisica:PessoaFisica]
+	//static hasOne=[pessoafisica:PessoaFisica]
 	
 	
 	static mapping={
 		table 'tb_pessoajuridica'
 		version false
-		idpj column: 'id_pj',generator: 'increment', sqlType: 'tinyint'
+		id generator: 'increment', sqlType: 'tinyint'
 			
 		
 	}
 	
     static constraints = {
+		id (unique:true, nullable:false)
+		filial (nullable:false, blank: false)
+		representante (nullable:false, blank: false)
+		atendente (nullable:false, blank: false)
+		razaosocial (nullable:false, blank: false)
+		cnpj (nullable:false , blank: false)
+		fantasia (nullable:false , blank: false)
+		ie (nullable:false , blank: false)
+		im (nullable:false , blank: false)
+		endereco (nullable:false ,blank: false)
+		numero (nullable:false)
+		complemento (nullable:true)
+		website (nullable:true)
+		fax (nullable:true)
+		email (nullable:false) 
+		atividadeprincipal (nullable:true)  
+		telefone  (nullable:false)
+		porcentagemvendas (nullable:true) 
+		faturamentoultimomes (nullable:true)
+		faturamentoultimos12meses (nullable:true)
+		nomecontato (nullable:true)
+		cargocontato (nullable:true)
+		contador (nullable:true)
+		sociedade (nullable:true)
+		dataconstituicao (nullable:true)
+		dataultimaalteracao (nullable:true)
+		crc (nullable:true)
+		telefonecontador (nullable:true)
+		nsocios (nullable:true ,blank: true)
+		capital (nullable:true)
+		possuifiliais (nullable:true,inlist:["Sim", "Não"])
+		nfiliais (nullable:true)
+		nfuncionarios (nullable:true)
+		id_representante1 (nullable:true)
+		id_representante2 (nullable:true)
+		id_representante3 (nullable:true)
+		assinatura (nullable:true)
+		cotista1 (nullable:true)
+		documento1 (nullable:true)
+		porcentagem1 (nullable:true)
+		valor1 (nullable:true)
+		cotista2 (nullable:true)
+		documento2 (nullable:true)
+		porcentagem2 (nullable:true)
+		valor2 (nullable:true)
+		cotista3 (nullable:true)
+		documento3 (nullable:true)
+		porcentagem3 (nullable:true)
+		valor3 (nullable:true)
+		nbanco (nullable:true)
+		nomebanco (nullable:true)
+		nagencia (nullable:true)
+		contacorrente (nullable:true)
+		dataabertura (nullable:true)
+		telefonebanco (nullable:true)
+		ref1 (nullable:true)
+		docref1 (nullable:true)
+		foneref1 (nullable:true)
+		ref2 (nullable:true)
+		docref2 (nullable:true)
+		foneref2 (nullable:true)
+		ref3 (nullable:true)
+		docref3 (nullable:true)
+		foneref3 (nullable:true)
+		ref4 (nullable:true)
+		docref4 (nullable:true)
+		foneref4 (nullable:true)
+		
+		
+		
+		
+		
     }
 }

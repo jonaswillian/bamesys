@@ -3,7 +3,7 @@ package bamesys_lucas
 import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.grails.composer.*
 import org.zkoss.zk.ui.*;
-import org.zkoss.zk.ui.event.Event
+import org.zkoss.zk.ui.event.*
 import org.zkoss.zk.ui.select.annotation.*
 import org.zkoss.zul.*
 
@@ -244,10 +244,7 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 	@Wire
 	Textbox senharestrita
 	
-	
-	
 		
-	
 	
 	
 	
@@ -272,10 +269,10 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 					listcell(label: pessoaj.atendente)
 					listcell(label: ""){
 						hlayout{
-							toolbarbutton(label: '      ', image: "/images/skin/database_edit.png",
+							toolbarbutton(label: 'Editar', image: "/images/skin/database_edit.png",
 								onClick: { e-> this.editarPessoa(item);
 								} )
-							toolbarbutton(label: '        ', image: "/images/skin/database_delete.png",
+							toolbarbutton(label: 'Excluir', image: "/images/skin/database_delete.png",
 								onClick: { e-> this.excluirPJ(item);
 								} )
 							
@@ -291,15 +288,93 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 		PessoaJuridica upj=item.value
 		
 		id.value = upj.id
-		//id.value=user.id
-		//nome.value=user.nome
-		//login.value=user.login
-		//senha.value=user.senha
-		//confirmarSenha.value=user.senha
-		//cmbGrupo.selectedItem = cmbGrupo.items.find({ it.value == user.grupo})
+		filial.value= upj.filial
+		representante.value=upj.representante
 		
-		winCadastro.visible = true
-		winLista.visible = false
+		atendente.value= upj.atendente
+		razaosocial.value= upj.razaosocial
+		cnpj.value= upj.cnpj
+		fantasia.value=upj.fantasia
+		ie.value=upj.ie
+		im.value=upj.im
+		endereco.value=upj.endereco
+		numero.value=upj.numero
+		complemento.value=upj.complemento
+		bairro.value=upj.bairro
+		cidade.value=upj.cidade
+		estado.value=upj.estado
+		cep.value=upj.cep
+		website.value=upj.website
+		telefone.value=upj.telefone
+		fax.value=upj.fax
+		email.value=upj.email
+		contador.value=upj.contador
+		crc.value=upj.crc
+		telefonecontador.value=upj.telefonecontador
+		atividadeprincipal.value=upj.atividadeprincipal
+		porcentagemvendas.value=upj.porcentagemvendas
+		faturamentoultimomes.value=upj.faturamentoultimomes
+		faturamentoultimos12meses.value=upj.faturamentoultimos12meses
+		nomecontato.value=upj.nomecontato
+		cargocontato.value=upj.cargocontato
+		sociedade.value=upj.sociedade
+		dataconstituicao.value=upj.dataconstituicao
+		capital.value=upj.capital
+		dataultimaalteracao.value=upj.dataultimaalteracao
+		nsocios.value=upj.nsocios
+		possuifiliais.selectedItem=possuifiliais.items.find({it.value == upj.possuifiliais})
+		
+		nfiliais.value=upj.nfiliais
+		nfuncionarios.value=upj.nfuncionarios
+		id_representante1.value=upj.id_representante1
+		id_representante2.value=upj.id_representante2
+		id_representante3.value=upj.id_representante3
+		assinatura.value=upj.assinatura
+		cotista1.value=upj.cotista1
+		documento1.value=upj.documento1
+		porcentagem1.value=upj.porcentagem1
+		valor1.value=upj.valor1
+		
+		cotista2.value=upj.cotista2
+		documento2.value=upj.documento2
+		porcentagem2.value=upj.porcentagem2
+		valor2.value=upj.valor2
+		
+		cotista3.value=upj.cotista3
+		documento3.value=upj.documento3
+		porcentagem3.value=upj.porcentagem3
+		valor3.value=upj.valor3
+		
+		nbanco.value=upj.nbanco
+		nomebanco.value=upj.nomebanco
+		nagencia.value=upj.nagencia
+		contacorrente.value=upj.contacorrente
+		dataabertura.value=upj.dataabertura
+		telefonebanco.value=upj.telefonebanco
+	
+		ref1.value=upj.ref1
+		docref1.value=upj.docref1
+		foneref1.value=upj.foneref1
+		
+		ref2.value=upj.ref2
+		docref2.value=upj.docref2
+		foneref2.value=upj.foneref2
+		
+		ref3.value=upj.ref3
+		docref3.value=upj.docref3
+		foneref3.value=upj.foneref3
+		
+		ref4.value=upj.ref4
+		docref4.value=upj.docref4
+		foneref4.value=upj.foneref4
+			
+		login.value=upj.login
+		senha.value=upj.senha
+		senharestrita.value=upj.senharestrita
+		
+				
+		wCadastro.visible = true
+		wLista.visible = false
 	}
 	
 	
@@ -308,15 +383,18 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 			new EventListener() {
 				void onEvent(Event evt) throws InterruptedException {
 					if (evt.getName().equals("onOK")) {
-						PessoaJuridica pessoaj = item.value
-						
-						pessoaj.delete(flush:true)
+						PessoaJuridica pesj = item.value						
+						pesj.delete(flush:true);
 						item.detach()
 					}
 				}
 			}
 		)
 	}
+	
+	
+	
+	
 	
 	@Listen("onClick = #pj_btn_cancelar")
 	void retornar() {
@@ -344,7 +422,7 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 		cidade.value=""
 		estado.value=""
 		cep.value=""
-	/*	website.value=""
+		website.value=""
 		telefone.value=null
 		fax.value=null
 		email.value=""
@@ -358,65 +436,64 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 		nomecontato.value=""
 		cargocontato.value=""
 		sociedade.value=""
-		dataconstituicao.value=""
+		dataconstituicao.value=null
 		capital.value=""
-		dataultimaalteracao.value=""
+		dataultimaalteracao.value=null
 		nsocios.value=null
 		possuifiliais.selectedIndex=0
-		*/	
-			/*
-		pj.nfiliais = nfiliais.value
-		pj.nfuncionarios = nfuncionarios.value
-		pj.id_representante1 = id_representante1.value
-		pj.id_representante2 = id_representante2.value
-		pj.id_representante3 = id_representante3.value
-		pj.assinatura = assinatura.value
-		pj.cotista1 = cotista1.value
-		pj.documento1 = documento1.value
-		pj.porcentagem1 = porcentagem1.value
-		pj.valor1 = valor1.value
+					
+		nfiliais.value=null
+		nfuncionarios.value=null
+		id_representante1.value=null
+		id_representante2.value=null
+		id_representante3.value=null
+		assinatura.value=""
+		cotista1.value=""
+		documento1.value=null
+		porcentagem1.value=null
+		valor1.value=""
 		
-		pj.cotista2 = cotista2.value
-		pj.documento2 = documento2.value
-		pj.porcentagem2 = porcentagem2.value
-		pj.valor2 = valor2.value
+		cotista2.value=""
+		documento2.value=""
+		porcentagem2.value=null
+		valor2.value=null
 		
-		pj.cotista3 = cotista3.value
-		pj.documento3 = documento3.value
-		pj.porcentagem3 = porcentagem3.value
-		pj.valor3 = valor3.value
+		cotista3.value=""
+		documento3.value=""
+		porcentagem3.value=null
+		valor3.value=null
 		
-		pj.nbanco = nbanco.value
-		pj.nomebanco = nomebanco.value
-		pj.nagencia = nagencia.value
-		pj.contacorrente = contacorrente.value
-		pj.dataabertura = dataabertura.value
-		pj.telefonebanco = telefonebanco.value
+		nbanco.value=null
+		nomebanco.value=""
+		nagencia.value=null
+		contacorrente.value=""
+		dataabertura.value=null
+		telefonebanco.value=""
 	
-		pj.ref1 = ref1.value
-		pj.docref1 = docref1.value
-		pj.foneref1 = foneref1.value
+		ref1.value=""
+		docref1.value=""
+		foneref1.value=""
 		
-		pj.ref2 = ref2.value
-		pj.docref2 = docref2.value
-		pj.foneref2 = foneref2.value
+		ref2.value=""
+		docref2.value=""
+		foneref2.value=""
 		
-		pj.ref3 = ref3.value
-		pj.docref3 = docref3.value
-		pj.foneref3 = foneref3.value
+		ref3.value=""
+		docref3.value=""
+		foneref3.value=""
 		
-		pj.ref4 = ref4.value
-		pj.docref4 = docref4.value
-		pj.foneref4 = foneref4.value
+		ref4.value=""
+		docref4.value=""
+		foneref4.value=""
 			
-		pj.login = login.value
-		pj.senha = senha.value
-		pj.senharestrita = senharestrita.value
+		login.value=""
+		senha.value=""
+		senharestrita.value=""
 		
 		
 		
 		
-		*/
+		filial.focus()
 		wCadastro.visible = true
 		
 	}
@@ -517,7 +594,7 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 		if (!pj.hasErrors() && pj.save(flush:true)) {
 			Messagebox.show("Dados cadastrados!")
 			//listarIngrediente()
-			//adicionar()
+			adicionar()
 			
 		}else {
 			String x=""
