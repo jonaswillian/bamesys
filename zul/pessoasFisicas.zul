@@ -21,18 +21,7 @@
 
 	<window apply="bamesys.PessoasFisicasComposer" width="100%">
 		
-		<!-- ########################################## TOPO ##################################################3 -->
-
-		<div style="height:90px;">
-			<div style="position:absolute; margin-top:10px; margin-left:3%;">
-				<image src="images/logo_topo.png" />
-			</div>
-			<div>
-				<image src="images/bg_topo.jpg" style="margin-top:-100px;" />
-			</div>
-		</div>
-		
-		<!-- ########################################## FIM TOPO ##################################################3 -->
+		<include src="topo.zul" />
 
 		<h:br /><h:br /><h:br /><h:br /><h:br />
 
@@ -94,10 +83,10 @@
 					<row>
 	
 						<hlayout>
-							<listbox mold="select" width="200px" id="lstFilial" sclass="mydb">
-								<listitem label="Guaratinguetá"></listitem>
-								<listitem label="Lorena"></listitem>
-							</listbox>
+							<combobox width="200px" id="cmbFilial" sclass="mydb">
+								<comboitem label="Guaratinguetá" />
+								<comboitem label="Lorena" />
+							</combobox>
 							
 						</hlayout>
 						<hlayout>
@@ -147,8 +136,7 @@
 							<textbox width="220px" id="txtNome" sclass="mydb" />
 						</hlayout>
 						<hlayout>
-							<textbox width="150px"
-								constraint="/[0-9]{3}[0-9]{3}[0-9]{3}[0-9]{2}/" id="txtCpf" sclass="mydb" />
+							<textbox width="150px" constraint="no empty" id="txtCpf" sclass="mydb" />
 						</hlayout>
 						<hlayout>
 							<datebox width="100px" id="dbDataNasc" sclass="mydb" />
@@ -179,44 +167,44 @@
 							<textbox width="200px" id="txtNaturalidade" sclass="mydb" />
 						</hlayout>
 						<hlayout>
-							<listbox mold="select" width="100px" id="lstUfNaturalidade" sclass="mydb">
-								<listitem label="AC"></listitem>
-								<listitem label="AL"></listitem>
-								<listitem label="AM"></listitem>
-								<listitem label="AP"></listitem>
-								<listitem label="BA"></listitem>
-								<listitem label="CE"></listitem>
-								<listitem label="DF"></listitem>
-								<listitem label="ES"></listitem>
-								<listitem label="GO"></listitem>
-								<listitem label="MA"></listitem>
-								<listitem label="MG"></listitem>
-								<listitem label="MS"></listitem>
-								<listitem label="MT"></listitem>
-								<listitem label="PA"></listitem>
-								<listitem label="PB"></listitem>
-								<listitem label="PE"></listitem>
-								<listitem label="PI"></listitem>
-								<listitem label="PR"></listitem>
-								<listitem label="RJ"></listitem>
-								<listitem label="RN"></listitem>
-								<listitem label="RO"></listitem>
-								<listitem label="RR"></listitem>
-								<listitem label="RS"></listitem>
-								<listitem label="SC"></listitem>
-								<listitem label="SE"></listitem>
-								<listitem label="SP"></listitem>
-								<listitem label="TO"></listitem>
-							</listbox>
+							<combobox width="100px" id="cmbUfNaturalidade" sclass="mydb">
+								<comboitem label="AC" />
+								<comboitem label="AL" />
+								<comboitem label="AM" />
+								<comboitem label="AP" />
+								<comboitem label="BA" />
+								<comboitem label="CE" />
+								<comboitem label="DF" />
+								<comboitem label="ES" />
+								<comboitem label="GO" />
+								<comboitem label="MA" />
+								<comboitem label="MG" />
+								<comboitem label="MS" />
+								<comboitem label="MT" />
+								<comboitem label="PA" />
+								<comboitem label="PB" />
+								<comboitem label="PE" />
+								<comboitem label="PI" />
+								<comboitem label="PR" />
+								<comboitem label="RJ" />
+								<comboitem label="RN" />
+								<comboitem label="RO" />
+								<comboitem label="RR" />
+								<comboitem label="RS" />
+								<comboitem label="SC" />
+								<comboitem label="SE" />
+								<comboitem label="SP" />
+								<comboitem label="TO" />
+							</combobox>
 						</hlayout>
 						<hlayout>
 							<textbox width="200px" id="txtNacionalidade" sclass="mydb" />
 						</hlayout>
 						<hlayout>
-							<listbox mold="select" width="100px" id="lstSexo" sclass="mydb">
-								<listitem label="Masculino"></listitem>
-								<listitem label="Feminino"></listitem>
-							</listbox>
+							<combobox width="100px" id="cmbSexo" sclass="mydb">
+								<comboitem label="Masculino" />
+								<comboitem label="Feminino" />
+							</combobox>
 						</hlayout>
 					</row>
 	
@@ -246,35 +234,35 @@
 							<textbox width="200px" id="txtEmissor" sclass="mydb" />
 						</hlayout>
 						<hlayout>
-							<listbox mold="select" width="100px" id="lstUfEmissao" sclass="mydb">
-								<listitem label="AC"></listitem>
-								<listitem label="AL"></listitem>
-								<listitem label="AM"></listitem>
-								<listitem label="AP"></listitem>
-								<listitem label="BA"></listitem>
-								<listitem label="CE"></listitem>
-								<listitem label="DF"></listitem>
-								<listitem label="ES"></listitem>
-								<listitem label="GO"></listitem>
-								<listitem label="MA"></listitem>
-								<listitem label="MG"></listitem>
-								<listitem label="MS"></listitem>
-								<listitem label="MT"></listitem>
-								<listitem label="PA"></listitem>
-								<listitem label="PB"></listitem>
-								<listitem label="PE"></listitem>
-								<listitem label="PI"></listitem>
-								<listitem label="PR"></listitem>
-								<listitem label="RJ"></listitem>
-								<listitem label="RN"></listitem>
-								<listitem label="RO"></listitem>
-								<listitem label="RR"></listitem>
-								<listitem label="RS"></listitem>
-								<listitem label="SC"></listitem>
-								<listitem label="SE"></listitem>
-								<listitem label="SP"></listitem>
-								<listitem label="TO"></listitem>
-							</listbox>
+							<combobox width="100px" id="cmbUfEmissao" sclass="mydb">
+								<comboitem label="AC" />
+								<comboitem label="AL" />
+								<comboitem label="AM" />
+								<comboitem label="AP" />
+								<comboitem label="BA" />
+								<comboitem label="CE" />
+								<comboitem label="DF" />
+								<comboitem label="ES" />
+								<comboitem label="GO" />
+								<comboitem label="MA" />
+								<comboitem label="MG" />
+								<comboitem label="MS" />
+								<comboitem label="MT" />
+								<comboitem label="PA" />
+								<comboitem label="PB" />
+								<comboitem label="PE" />
+								<comboitem label="PI" />
+								<comboitem label="PR" />
+								<comboitem label="RJ" />
+								<comboitem label="RN" />
+								<comboitem label="RO" />
+								<comboitem label="RR" />
+								<comboitem label="RS" />
+								<comboitem label="SC" />
+								<comboitem label="SE" />
+								<comboitem label="SP" />
+								<comboitem label="TO" />
+							</combobox>
 						</hlayout>
 					</row>
 	
@@ -295,13 +283,13 @@
 	
 					<row>
 						<hlayout>
-							<listbox mold="select" width="150px" id="lstEstadoCivil" sclass="mydb">
-								<listitem label="Solteiro(a)"></listitem>
-								<listitem label="Casado(a)"></listitem>
-								<listitem label="Divorciado(a)"></listitem>
-								<listitem label="Desquitado(a)"></listitem>
-								<listitem label="Viúvo(a)"></listitem>
-							</listbox>
+							<combobox width="150px" id="cmbEstadoCivil" sclass="mydb">
+								<comboitem label="Solteiro(a)" />
+								<comboitem label="Casado(a)" />
+								<comboitem label="Divorciado(a)" />
+								<comboitem label="Desquitado(a)" />
+								<comboitem label="Viúvo(a)" />
+							</combobox>
 						</hlayout>
 						<hlayout>
 							<intbox width="50px" id="intNDependendes" sclass="mydb" />
@@ -394,35 +382,35 @@
 	
 					<row>
 						<hlayout>
-							<listbox mold="select" width="100px" id="lstEstado" sclass="mydb">
-								<listitem label="AC"></listitem>
-								<listitem label="AL"></listitem>
-								<listitem label="AM"></listitem>
-								<listitem label="AP"></listitem>
-								<listitem label="BA"></listitem>
-								<listitem label="CE"></listitem>
-								<listitem label="DF"></listitem>
-								<listitem label="ES"></listitem>
-								<listitem label="GO"></listitem>
-								<listitem label="MA"></listitem>
-								<listitem label="MG"></listitem>
-								<listitem label="MS"></listitem>
-								<listitem label="MT"></listitem>
-								<listitem label="PA"></listitem>
-								<listitem label="PB"></listitem>
-								<listitem label="PE"></listitem>
-								<listitem label="PI"></listitem>
-								<listitem label="PR"></listitem>
-								<listitem label="RJ"></listitem>
-								<listitem label="RN"></listitem>
-								<listitem label="RO"></listitem>
-								<listitem label="RR"></listitem>
-								<listitem label="RS"></listitem>
-								<listitem label="SC"></listitem>
-								<listitem label="SE"></listitem>
-								<listitem label="SP"></listitem>
-								<listitem label="TO"></listitem>
-							</listbox>
+							<combobox width="100px" id="cmbEstado" sclass="mydb">
+								<comboitem label="AC" />
+								<comboitem label="AL" />
+								<comboitem label="AM" />
+								<comboitem label="AP" />
+								<comboitem label="BA" />
+								<comboitem label="CE" />
+								<comboitem label="DF" />
+								<comboitem label="ES" />
+								<comboitem label="GO" />
+								<comboitem label="MA" />
+								<comboitem label="MG" />
+								<comboitem label="MS" />
+								<comboitem label="MT" />
+								<comboitem label="PA" />
+								<comboitem label="PB" />
+								<comboitem label="PE" />
+								<comboitem label="PI" />
+								<comboitem label="PR" />
+								<comboitem label="RJ" />
+								<comboitem label="RN" />
+								<comboitem label="RO" />
+								<comboitem label="RR" />
+								<comboitem label="RS" />
+								<comboitem label="SC" />
+								<comboitem label="SE" />
+								<comboitem label="SP" />
+								<comboitem label="TO" />
+							</combobox>
 						</hlayout>
 						<hlayout>
 							<textbox width="100px" id="txtCep" sclass="mydb" />
@@ -431,12 +419,12 @@
 							<textbox width="150px" id="txtEscolaridade" sclass="mydb" />
 						</hlayout>
 						<hlayout>
-							<listbox mold="select" width="150px" id="lstTipoResidencia" sclass="mydb">
-								<listitem label="Própria"></listitem>
-								<listitem label="Alugada"></listitem>
-								<listitem label="Financiada"></listitem>
-								<listitem label="Outro"></listitem>
-							</listbox>
+							<combobox width="150px" id="cmbTipoResidencia" sclass="mydb">
+								<comboitem label="Própria" />
+								<comboitem label="Alugada" />
+								<comboitem label="Financiada" />
+								<comboitem label="Outro" />
+							</combobox>
 						</hlayout>
 					</row>
 	
@@ -614,35 +602,35 @@
 							<textbox width="150px" sclass="mydb" id="txtCidadeEmpresa" />
 						</hlayout>
 						<hlayout>
-							<listbox mold="select" width="100px" id="lstEstadoEmpresa">
-								<listitem label="AC"></listitem>
-								<listitem label="AL"></listitem>
-								<listitem label="AM"></listitem>
-								<listitem label="AP"></listitem>
-								<listitem label="BA"></listitem>
-								<listitem label="CE"></listitem>
-								<listitem label="DF"></listitem>
-								<listitem label="ES"></listitem>
-								<listitem label="GO"></listitem>
-								<listitem label="MA"></listitem>
-								<listitem label="MG"></listitem>
-								<listitem label="MS"></listitem>
-								<listitem label="MT"></listitem>
-								<listitem label="PA"></listitem>
-								<listitem label="PB"></listitem>
-								<listitem label="PE"></listitem>
-								<listitem label="PI"></listitem>
-								<listitem label="PR"></listitem>
-								<listitem label="RJ"></listitem>
-								<listitem label="RN"></listitem>
-								<listitem label="RO"></listitem>
-								<listitem label="RR"></listitem>
-								<listitem label="RS"></listitem>
-								<listitem label="SC"></listitem>
-								<listitem label="SE"></listitem>
-								<listitem label="SP"></listitem>
-								<listitem label="TO"></listitem>
-							</listbox>
+							<combobox width="100px" id="cmbEstadoEmpresa">
+								<comboitem label="AC" />
+								<comboitem label="AL" />
+								<comboitem label="AM" />
+								<comboitem label="AP" />
+								<comboitem label="BA" />
+								<comboitem label="CE" />
+								<comboitem label="DF" />
+								<comboitem label="ES" />
+								<comboitem label="GO" />
+								<comboitem label="MA" />
+								<comboitem label="MG" />
+								<comboitem label="MS" />
+								<comboitem label="MT" />
+								<comboitem label="PA" />
+								<comboitem label="PB" />
+								<comboitem label="PE" />
+								<comboitem label="PI" />
+								<comboitem label="PR" />
+								<comboitem label="RJ" />
+								<comboitem label="RN" />
+								<comboitem label="RO" />
+								<comboitem label="RR" />
+								<comboitem label="RS" />
+								<comboitem label="SC" />
+								<comboitem label="SE" />
+								<comboitem label="SP" />
+								<comboitem label="TO" />
+							</combobox>
 						</hlayout>
 						<hlayout>
 							<label value=" " />

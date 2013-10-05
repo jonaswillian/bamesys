@@ -75,9 +75,15 @@ class PessoaFisica {
 	String nomeref3
 	String telefoneref3
 	
+	static mapping= {
+			table 'tb_pessoafisica'
+			version false
+			id generator: 'increment', sqlType: 'tinyint'
+	}
+	
 
     static constraints = {
-		id (unique:true, nullable:false)
+		id (unique:true)
 		filial (nullable:false)
 		representante (nullable:false)
 		atendente (nullable:false)
