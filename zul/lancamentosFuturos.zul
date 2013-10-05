@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="bamesys.LancamentosFuturosComposer">
+
+        <hlayout>
+			<toolbarbutton id="btnNovo" 
+				image="/images/skin/database_add.png"
+				label="Adicionar" />
+			<space />
+			
+		</hlayout>
+		
+		<listbox id="lstDados" emptyMessage="Nenhum Lançamento Cadastrado">
+		</listbox>				
+		
+		<panel id="panel" title="Lançamentos Futuros" framable="true" width="500px"         
+		maximizable="true" border="normal" collapsible="true" draggable="true">
+        <panelchildren>
+		<grid id="gridDados">
+			
+			<rows>
+				<row>
+					<label
+						value="${message(code:'LancamentosFuturos.id.label',default:'Id')}" visible="false" />
+					<intbox id="id" value="0" visible="false" />
+				</row>
+				<row>
+					<label
+						value="${message(code:'LancamentosFuturos.valor.label',default:'Valor')}" />
+					<doublebox id="valor" maxlength="100" />					
+				</row>
+				<row>
+					<label value="Tipo" />					
+					<listbox id="lstTipo" multiple="false" rows="1" mold="select">
+						<listitem label="Crédito" value="Crédito" />
+						<listitem label="Débito" value="Débito" />						
+					</listbox>
+				</row>
+				<row>
+					<label
+						value="${message(code:'LancamentosFuturos.data.label',default:'Data do Lançamento')}" />
+					<datebox id="dataLancamento" format="short" />
+				</row>
+				<row>
+					<label value="Afetado" />
+					
+					<listbox id="lstPessoa" multiple="false" rows="1" mold="select">						
+					</listbox>
+				</row>
+			</rows>
+
+		</grid>
+		<hlayout>
+			<button id="btnSalvar"
+				label="${message(code: 'default.button.save.label', default: 'Salvar')}" />
+			<button id="btnCancelar" label="Cancelar" />
+			<label id="lblErro" />
+		</hlayout>
+		</panelchildren>
+		</panel>
+        
+
+    </window>
+
+</zk>
