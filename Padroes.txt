@@ -1,0 +1,6 @@
+* NOME DE CLASSE
+Primeira letra de cada palavra em maiuscula, todas no singular
+
+* NOME DE ARQUIVO ZUL
+Primeira letra da palavra em minuscula, restante em maiusculo, todas no plural
+
