@@ -215,10 +215,9 @@
 	    
 	    <row>
 		<hlayout> 
-		    <combobox id="possuifiliais" width="130px">
-		     <comboitem label="" />
-		    <comboitem label="Sim" />
-		    <comboitem label="Não" />
+		    <combobox id="cmbpossuifiliais" width="130px">
+		        <comboitem label="Sim" value="sim" />
+		        <comboitem label="Não" value="nao" />
 		    </combobox> 
 		</hlayout>
 		<hlayout> <intbox id="nfiliais" width="100px" sclass="mydb"/> </hlayout>
@@ -447,6 +446,8 @@
 	 </grid>
     </hlayout>
   </div>
+  
+ 
   
   <script type="text/javascript" src="/js/jquery.maskedinput.js"></script>
    <script type="text/javascript">
