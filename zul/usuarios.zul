@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css"?>
+<?page title="Gerenciamento de Usuários" ?>
+<zk xmlns:c="client"
+	xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+	<style dynamic="true">
+		.titulo{font-weight:bold; font-family: Verdana, Arial,
+		Helvetica; font-size:24px; margin-top:-1px;} 
+		.erro{font-weight:bold; color: #FA1515; margin-left:250px; }		
+		.errogrid{font-weight:bold; color: #FA1515; width: 50px }
+		.sucesso{font-weight:bold; color: #48c30b; margin-left:250px;}
+	</style>
+	
+	<script>
+	<![CDATA[
+        function pwdValid(pwd2) {
+            var valLabel = jq("$lblConfirmacaoSenha");
+            if (pwd2.getValue() == "") {
+                zk.Widget.$(valLabel).setValue("");
+            } else if (pwd2.getValue() != zk.Widget.$(jq("$senha")).getValue()) {
+                zk.Widget.$(valLabel).setValue("Senhas não conferem !")
+            } else {            	
+                zk.Widget.$(valLabel).setValue(" ")
+            };
+        }
+    ]]>
+    </script>
+	
+	<window apply="bamesys.UsuariosComposer">
+		<include src="topo.zul" />
+		<h:br />
+		<h:br />
+		<h:br />
+		<h:br />
+		<h:br />
+		
+		<h:p class="titulo" style="margin-top:-80px">
+			<h:img src="images/skin/iconUserMini.png" align="absmiddle" />
+			CADASTRO DE USUÁRIO
+		</h:p>
+		
+		<separator></separator>
+				
+		<div id="winLista" width="70%" style="position:fixed; top: 180px; left: 10px; z-index: 1000">
+			<hlayout>
+				<toolbarbutton id="btnNovo" image="/images/skin/adicionar.png" label="Inserir" />			
+				<bandbox id="bdboxBuscaUsuario" placeholder="Digite um nome para pesquisar" style="position:fixed; left:500px"/>
+			</hlayout>
+						
+			<separator></separator>
+			<separator></separator>
+			
+			<listbox id="lstUsuarios" emptyMessage="Nenhum Usuário Cadastrado" multiple="true"
+				checkmark="false" mold="paging" pageSize="10" vflex="1">
+				<listhead>
+					<listheader sort="auto" label="Id" />
+					<listheader sort="auto" label="Nome" />
+					<listheader sort="auto" label="Grupo" />
+					<listheader sort="auto" label="Login" />
+					<listheader sort="auto" label="Ações" />
+				</listhead>
+			</listbox>
+		</div>
+		
+		<div id="winCadastro" width="70%" style="position:fixed; top: 180px; left: 10px; z-index: 1000">
+			<hlayout>
+				<toolbarbutton id="btnVoltar" image="/images/skin/arrow_left.png" label="Voltar" />
+				<label id="lblResultado" ></label>
+			</hlayout>
+			
+			<separator></separator>
+			<separator></separator>
+			
+			<grid>
+				<columns>
+					<column label="Cadastro de Usuário" width="200px" />
+				</columns>
+
+				<rows>
+					<row>
+						<label value="Código: " visible="false" />
+						<intbox id="id" value="0" visible="false" />
+					</row>
+
+					<row>
+						<label value="Nome: " />
+						<textbox id="nome" maxlength="100" constraint="/^[a-zA-Z](?![a-zA-Z]+$).+$/: Nome e Sobrenome são obrigatórios" />
+					</row>
+
+					<row>
+						Grupo:
+						<combobox id="cmbGrupo" width="230px" constraint="/.[Administrador,Corretor,Funcionário,Gerente,Operador]+/: Escolha uma opção">
+							<comboitem label="Administrador"
+								value="administrador" />
+							<comboitem label="Corretor"
+								value="corretor" />
+							<comboitem label="Funcionário"
+								value="funcionario" />
+							<comboitem label="Gerente" value="gerente" />
+							<comboitem label="Operador"
+								value="operador" />
+						</combobox>
+					</row>
+
+					<row>
+						<label value="Login: " />
+						<textbox id="login" maxlength="100" constraint="no empty:o Login é obrigatório" />
+						<label id="lblLogin" value="" sclass="errogrid" />
+					</row>
+
+					<row>
+						<label value="Senha: " />
+						<textbox id="senha" maxlength="100" type="password" constraint="no empty: a Senha é obrigatória"/>
+					</row>
+
+					<row>
+						<label value="Confirmar Senha: " />
+						<textbox id="confirmarSenha" maxlength="100" c:onChange='pwdValid(this)' type="password" />						
+                		<label id="lblConfirmacaoSenha" value="" sclass="errogrid" />
+					</row>
+
+				</rows>
+			</grid>
+
+			<separator></separator>
+
+			<hbox style="position:fixed; left: 30px">
+				<toolbarbutton id="btnSalvar"
+					image="/images/skin/salvar.png" label="Salvar" />
+				<space spacing="20px" />
+				<toolbarbutton id="btnCancelar"
+					image="/images/skin/cancelar.png" label="Cancelar" />
+			</hbox>
+		</div>
+	</window>
+</zk>

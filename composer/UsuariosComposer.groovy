@@ -7,33 +7,16 @@ import org.zkoss.zk.ui.event.*
 import org.zkoss.zk.ui.select.annotation.*
 import org.zkoss.zul.*
 
-class UsuarioComposer extends zk.grails.Composer {		
-	@Wire
+class UsuariosComposer extends zk.grails.Composer {		
 	Intbox id
-	
-	@Wire
-	Textbox nome
-	
-	@Wire
+	Textbox nome, login, senha, confirmarSenha, bdboxBuscaUsuario
 	Combobox cmbGrupo
-	
-	@Wire
-	Textbox login
-	
-	@Wire
-	Textbox senha
-	
-	@Wire
-	Textbox confirmarSenha
-	
-	@Wire
-	Div winCadastro
-	
-	@Wire
-	Div winLista
-	
-	@Wire
+	Div winCadastro, winLista
 	Listbox lstUsuarios
+	Label lblLogin, lblResultado
+	
+	String loginaux
+	
 	
 	def afterCompose = { window ->
 		winCadastro.visible = false
@@ -42,10 +25,15 @@ class UsuarioComposer extends zk.grails.Composer {
 	}
 	
 	void listarUsuarios(){
+		def lista = Usuario.createCriteria().list {
+			like("nome", "%"+bdboxBuscaUsuario.text+"%")
+		}
+		
+		
 		lstUsuarios.items.clear()
 		
 		lstUsuarios.append {			
-			Usuario.list().each{ user ->
+			lista.each{ user ->
 				listitem(value: user) { item ->
 					listcell(label: user.id)
 					listcell(label: user.nome)
@@ -59,9 +47,6 @@ class UsuarioComposer extends zk.grails.Composer {
 							toolbarbutton(label: '      ', image: "/images/skin/excluir.png",
 								onClick: { e-> this.excluirUsuario(item);
 								} )
-							toolbarbutton(label: '      ', image: "/images/skin/movimentacoes.png",
-								onClick: { e-> this.movimentacoesUsuario(item);
-								} )
 						}
 					}
 				}
@@ -73,11 +58,12 @@ class UsuarioComposer extends zk.grails.Composer {
 		Usuario user=item.value
 		id.value=user.id
 		nome.value=user.nome
-		login.value=user.login
+		login.text=user.login
 		senha.value=user.senha
 		confirmarSenha.value=user.senha
 		cmbGrupo.selectedItem = cmbGrupo.items.find({ it.value == user.grupo})
 		nome.focus()
+		loginaux = login.text
 		winCadastro.visible = true
 		winLista.visible = false
 	}
@@ -96,28 +82,31 @@ class UsuarioComposer extends zk.grails.Composer {
 		)
 	}
 	
-	void movimentacoesUsuario(Listitem item) {
-	
-	}
-	
-	@Listen("onClick = #btnCancelar")
-	void retornar() {		
-		winCadastro.visible = false
-		winLista.visible = true
+	@Listen("onChanging = #bdboxBuscaUsuario")
+	void buscaUsuarios(InputEvent e){
+		bdboxBuscaUsuario.text = e.value
 		listarUsuarios()
 	}
 	
+	
+	@Listen("onClick = #btnCancelar, #btnVoltar")
+	void retornar() {		
+		Executions.sendRedirect("usuarios.zul")
+	}
+	
+	
 	@Listen("onClick = #btnNovo")
-	void adicionar() {
+	void adicionar() {		
 		winLista.visible = false
+		winCadastro.visible = true
+		nome.focus()
 		id.value=0
 		nome.value=""
 		login.value=""
 		senha.value=""
 		confirmarSenha.value=""
-		cmbGrupo.selectedIndex=0		
-		nome.focus()		
-		winCadastro.visible = true
+		cmbGrupo.selectedIndex=0
+		lblResultado.value = ""
 	}	
 		
 	@Listen("onClick = #btnSalvar")
@@ -135,13 +124,27 @@ class UsuarioComposer extends zk.grails.Composer {
 		if(usuario.senha != senha.value) usuario.senha=senha.value.encodeAsSHA256()
 		
 		usuario.grupo=cmbGrupo.selectedItem.value								
+				
+		//println lblResultado.properties
 			
 		if (senhaValida() && !usuario.hasErrors() && usuario.save(flush:true)) {
-			Messagebox.show("Usuário cadastrado com sucesso")
-			retornar()							
+			lblResultado.value = "Usuário Cadastrado com Sucesso"
+			lblResultado.sclass = "sucesso"					
 		}else {
-			Messagebox.show("Problemas no cadastro de usuário. \nVerifique os campos e tente novamente")
+			lblResultado.value = "Problemas no cadastro de usuário. Verifique os campos e tente novamente"
+			lblResultado.sclass = "erro"
 		}
+	}
+	
+	@Listen("onChange = #login")
+	void verificaLogin(){		
+		def logins = Usuario.findAllByLogin(login.value)	
+		
+		if((logins.size() > 0) && (loginaux != login.value)){
+			lblLogin.value = "Login já utilizado, tente outro"
+		}else{
+			lblLogin.value = ""
+		}		
 	}
 	
 	boolean senhaValida(){

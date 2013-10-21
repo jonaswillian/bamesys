@@ -10,11 +10,11 @@ class Usuario {
 	static constraints = {
 		nome nullable:false
 		grupo nullable:false, inlist:["Administrador", "Corretor","Funcionário","Gerente","Operador"]
-		login nullable:false
+		login nullable:false, unique: true
 		senha nullable:false
     }
 	
 	static mapping= {
-		id generator:"native"
+		id generator:"native"		
 	}
 }
