@@ -15,6 +15,8 @@ class Usuario {
     }
 	
 	static mapping= {
+		table 'tb_usuarios'
+		version false
 		id generator:"native"		
 	}
 }
