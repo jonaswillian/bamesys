@@ -6,246 +6,33 @@ import org.zkoss.zk.ui.*;
 import org.zkoss.zk.ui.event.*
 import org.zkoss.zk.ui.select.annotation.*
 import org.zkoss.zul.*
+import org.zkoss.zk.ui.select.annotation.*
+import org.zkoss.zk.ui.util.Clients;
 
 import bamesys_lucas.*;
 
 class PessoaJuridicaComposer extends zk.grails.Composer {
 
 	
-	@Wire
-	Div wLista
+	Div wLista, wCadastro, wCons
 	
-	@Wire
-	Div wCadastro
-	
-	@Wire
 	Listbox lstPJ
 	
-	@Wire
-	Intbox id
-	
-	@Wire
-	Textbox filial
-	
-	@Wire
-	Textbox representante
-	
-	@Wire
-	Textbox atendente
-	
-	@Wire
-	Textbox razaosocial
-	
-	@Wire
-	Textbox cnpj
-	
-	@Wire
-	Textbox fantasia
-	
-	@Wire
-	Textbox ie
-	
-	@Wire
-	Textbox im
-	
-	@Wire
-	Textbox endereco
-	
-	@Wire
-	Intbox numero
-	
-	@Wire
-	Textbox complemento
-	
-	@Wire
-	Textbox bairro
-	
-	@Wire
-	Textbox cep
-	
-	@Wire
-	Textbox cidade
-	
-	@Wire
-	Textbox estado
-	
-	@Wire
-	Textbox telefone
-	
-	@Wire
-	Textbox fax
-	
-	@Wire
-	Textbox email
-	
-	@Wire
-	Textbox website
-	
-	@Wire
-	Textbox contador
-	
-	@Wire
-	Textbox crc
-	
-	@Wire
-	Textbox telefonecontador
-	
-	@Wire
-	Textbox atividadeprincipal
-	
-	@Wire
-	Intbox porcentagemvendas
-	
-	@Wire
-	Textbox  faturamentoultimomes
-	
-	@Wire
-	Textbox faturamentoultimos12meses
-	
-	@Wire
-	Textbox nomecontato
-	
-	@Wire
-	Textbox cargocontato
-	
-	@Wire
-	Textbox sociedade
-	
-	@Wire
-	Datebox dataconstituicao
-	
-	@Wire
-	Textbox capital
-	
-	@Wire
-	Datebox dataultimaalteracao
-	
-	@Wire
-	Intbox nsocios
-	
-	@Wire
-	Combobox possuifiliais
-	
-	@Wire
-	Intbox nfiliais
-	
-	@Wire
-	Intbox nfuncionarios
-	
-	@Wire
-	Intbox id_representante1
-	
-	@Wire
-	Intbox id_representante2
-	
-	@Wire
-	Intbox id_representante3
-	
-	@Wire
-	Textbox assinatura
-	
-	@Wire
-	Textbox cotista1
-	
-	@Wire
-	Textbox documento1
-	
-	@Wire
-	Intbox porcentagem1
-	
-	@Wire
-	Textbox valor1
-	
-    @Wire
-	Textbox cotista2
-	
-	@Wire
-	Textbox documento2
-	
-	@Wire
-	Intbox porcentagem2
-	
-	@Wire
-	Textbox valor2
-	
-	@Wire
-	Textbox cotista3
-	
-	@Wire
-	Textbox documento3
-	
-	@Wire
-	Intbox porcentagem3
-	
-	@Wire
-	Textbox valor3
-	
-	@Wire
-	Intbox nbanco
-	
-	@Wire
-	Textbox nomebanco
-	
-	@Wire
-	Textbox nagencia
-	
-	@Wire
-	Textbox contacorrente
-	
-	@Wire
-	Datebox dataabertura
-	
-	@Wire
-	Textbox telefonebanco
-	
-	@Wire
-	Textbox ref1
-	
-	@Wire
-	Textbox docref1
-	
-	@Wire
-    Textbox foneref1
-	
-	@Wire
-	Textbox ref2
-	
-	@Wire
-	Textbox docref2
-	
-	@Wire
-	Textbox foneref2
-	
-	@Wire
-	Textbox ref3
-	
-	@Wire
-	Textbox docref3
-	
-	@Wire
-	Textbox foneref3
-	
-	@Wire
-	Textbox ref4
-	
-	@Wire
-	Textbox docref4
-	
-	@Wire
-	Textbox foneref4
-	
-	
-	@Wire
-	Textbox login
-	
-	@Wire
-	Textbox senha
-	
-	@Wire
-	Textbox senharestrita
-	
-		
-	
+	Intbox id, porcentagemvendas, nsocios, nfiliais, nfuncionarios, id_representante1, id_representante2, id_representante3
+	Intbox porcentagem1, porcentagem2, porcentagem3, nbanco, numero
+	
+	Textbox filial, representante, atendente, razaosocial, cnpj, fantasia, ie, im, endereco, complemento 
+	Textbox bairro, cep, cidade, estado, telefone, fax, email, website, contador, crc, telefonecontador, atividadeprincipal
+	Textbox faturamentoultimomes, faturamentoultimos12meses, nomecontato, cargocontato, sociedade, capital
+	Textbox assinatura, cotista1, cotista2, cotista3, documento1, documento2, documento3, valor1, valor2, valor3, nomebanco
+	Textbox nagencia, contacorrente, telefonebanco, ref1, ref2, ref3, ref4, docref1, docref2, docref3, docref4
+	Textbox foneref1, foneref2, foneref3, foneref4, login, senha, senharestrita,bdboxBusca
+	
+	Datebox dataconstituicao, dataultimaalteracao, dataabertura
+	
+	Combobox cmbpossuifiliais
+
+	Label confilial, conrepresentante, conatendente, conrazaosocial, concnpj, confantasia
 	
 	
 	
@@ -254,14 +41,20 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
     def afterCompose = { window ->
 		wCadastro.visible = false
 		wLista.visible = true
+		wCons.visible = false
 		listarPJ()
     }
 
 	void listarPJ(){
+		
+		def lista = PessoaJuridica.createCriteria().list {
+		      like("filial", "%"+bdboxBusca.text+"%")
+		    }
+		
 		lstPJ.items.clear()
 		
 		lstPJ.append {
-			PessoaJuridica.list().each{ pessoaj ->
+			lista.each{ pessoaj ->
 				listitem(value: pessoaj) { item ->
 					listcell(label: pessoaj.id)
 					listcell(label: pessoaj.filial)
@@ -269,10 +62,13 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 					listcell(label: pessoaj.atendente)
 					listcell(label: ""){
 						hlayout{
-							toolbarbutton(label: 'Editar', image: "/images/skin/database_edit.png",
+							toolbarbutton(label: 'Visualizar', image: "/images/visualizar.png",
+								onClick: { e-> this.visualPessoa(item);
+								} )
+							toolbarbutton(label: 'Editar', image: "/images/editar.png",
 								onClick: { e-> this.editarPessoa(item);
 								} )
-							toolbarbutton(label: 'Excluir', image: "/images/skin/database_delete.png",
+							toolbarbutton(label: 'Excluir', image: "/images/excluir.png",
 								onClick: { e-> this.excluirPJ(item);
 								} )
 							
@@ -282,6 +78,27 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 			}
 		}
 	}
+	
+	
+	
+	void visualPessoa(Listitem item) {
+		PessoaJuridica conp=item.value
+		
+		id.value = conp.id
+		confilial.value=conp.filial
+		conrepresentante.value = conp.representante
+		conatendente.value = conp.atendente
+		
+		conrazaosocial.value = conp.razaosocial
+		concnpj.value = conp.cnpj
+		confantasia.value = conp.fantasia
+		
+		
+		wCons.visible = true
+		wCadastro.visible = false
+		wLista.visible = false
+	}
+	
 	
 	
 	void editarPessoa(Listitem item) {
@@ -322,7 +139,7 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 		capital.value=upj.capital
 		dataultimaalteracao.value=upj.dataultimaalteracao
 		nsocios.value=upj.nsocios
-		possuifiliais.selectedItem=possuifiliais.items.find({it.value == upj.possuifiliais})
+		cmbpossuifiliais.selectedItem=cmbpossuifiliais.items.find({it.value == upj.possuifiliais})
 		
 		nfiliais.value=upj.nfiliais
 		nfuncionarios.value=upj.nfuncionarios
@@ -375,6 +192,7 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 				
 		wCadastro.visible = true
 		wLista.visible = false
+		wCons.visible = false
 	}
 	
 	
@@ -392,29 +210,40 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 		)
 	}
 	
-	
+	@Listen("onChanging = #bdboxBusca")
+	void buscaUsuarios(InputEvent e){
+			bdboxBusca.text = e.value
+			listarPJ()
+	}
 	
 	
 	
 	@Listen("onClick = #pj_btn_cancelar")
-	void retornar() {
+	void retornarOLD() {
 		wCadastro.visible = false
 		wLista.visible = true
+		wCons.visible = false
 		listarPJ()
 	}
 	
 	@Listen("onClick = #btnNovo")
 	void adicionar() {
+		
+		
+		wCadastro.visible = true
 		wLista.visible = false
+		wCons.visible = false
+		
+		filial.focus()
 		id.value=0
 		filial.value=""
 		representante.value=""
         atendente.value=""
 		razaosocial.value=""
-		cnpj.value=null
+		cnpj.value=""
 		fantasia.value=""
-		ie.value=null
-		im.value=null
+		ie.value=""
+		im.value=""
 		endereco.value=""
 		numero.value=null
 		complemento.value=""
@@ -423,12 +252,12 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 		estado.value=""
 		cep.value=""
 		website.value=""
-		telefone.value=null
+		telefone.value=""
 		fax.value=null
 		email.value=""
 		contador.value=""
 		crc.value=""
-		telefonecontador.value=null
+		telefonecontador.value=""
 		atividadeprincipal.value=""
 		porcentagemvendas.value=null
 		faturamentoultimomes.value=""
@@ -440,7 +269,7 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 		capital.value=""
 		dataultimaalteracao.value=null
 		nsocios.value=null
-		possuifiliais.selectedIndex=0
+		cmbpossuifiliais.selectedIndex=0
 					
 		nfiliais.value=null
 		nfuncionarios.value=null
@@ -493,8 +322,7 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 		
 		
 		
-		filial.focus()
-		wCadastro.visible = true
+		
 		
 	}
 	
@@ -538,7 +366,7 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 		pj.capital = capital.value
 		pj.dataultimaalteracao = dataultimaalteracao.value
 		pj.nsocios = nsocios.value
-		pj.possuifiliais= possuifiliais.value
+		pj.possuifiliais= cmbpossuifiliais.selectedItem.value
 				
 			
 		pj.nfiliais = nfiliais.value
@@ -591,22 +419,60 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 		
 		
 				
-		if (!pj.hasErrors() && pj.save(flush:true)) {
-			Messagebox.show("Dados cadastrados!")
-			//listarIngrediente()
-			adicionar()
-			
-		}else {
-			String x=""
-			pj.errors.allErrors.each{
-				x+=""+message(error:it)
-				
+						
+			if (verificarSeCamposEstaoVazios() && !pj.hasErrors() && pj.save(flush:true)) {
+									
+				Clients.showNotification("Pessoa Jurídica Cadastrada", "info", null, null, 2000);
+				adicionar()
+			}else {
+	           Clients.showNotification("Problemas no cadastro. Verifique os campos obrigatórios e tente novamente!", "error", null, null, 2000);
 			}
-			print("X="+x)
-			Messagebox.show("Dados não foram cadastrados!")
-		}
+			
+			print(ie.value.trim().replace(".",""))
+		
 	}
+	
+	
+	//jq("$cnpj").mask("99.999.999/9999-99");
+	//jq("$ie").mask("999.999.999.999");
+	//jq("$im").mask("9.999.999-9")
+	//jq("$telefone").mask("(99)9999-9999");
+	
+	boolean verificarSeCamposEstaoVazios(){
+		    if(filial.value.isEmpty() || representante.value.isEmpty() 
+				|| atendente.value.isEmpty() || razaosocial.value.isEmpty() 
+				|| cnpj.value.isEmpty() || fantasia.value.isEmpty() || ie.value.isEmpty() || ie.value.trim().replace(".","").length() < 12
+				|| im.value.isEmpty() || im.value.trim().replace(".","").replace("-","").length() < 8 || endereco.value.isEmpty() || bairro.value.isEmpty() 
+				|| cep.value.isEmpty() || estado.value.isEmpty() || telefone.value.isEmpty()
+				|| cidade.value.isEmpty() || login.value.isEmpty() || senha.value.isEmpty() 
+				|| senharestrita.value.isEmpty() || numero.value == null)
+			 {  
+			
+		      return false
+		    }
+		      return true
+		   }
+	
+	
+	boolean verificaAsMascaras(){
+		if(nomedoftf.getText().trim().replace(".", "").length() < 10){ //ele tira todos os pontos e deixa somento os caracteres validos
+		return false;
+		}
+		  
+		return true;
+		}
+		 
+	
+	@Listen("onClick = #btnCancelar, #btnVoltar")
+	    void retornar() {
+	           Executions.sendRedirect("pessoaJuridica.zul")
+	     }
 	
 	
 	
 }
+
+
+	
+		
+		

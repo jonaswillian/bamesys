@@ -1,12 +1,19 @@
 <!-- ########################################## TOPO ##################################################3 -->
 
-		<div style="height:90px;">
-			<div style="position:absolute; margin-top:10px; margin-left:3%;">
-				<image src="images/logo_topo.png" />
-			</div>
-			<div>
-				<image src="images/bg_topo.jpg" style="margin-top:-100px;" />
-			</div>
-		</div>
-		
-		<!-- ########################################## FIM TOPO ##################################################3 -->
+                <div style="height:90px;">
+                        <div style="position:absolute; margin-top:5px; margin-left:3%;">
+                                <image src="images/logo_topo.png" />
+                        </div>
+                        <div>
+                                <image src="images/bg_topo.jpg" style="margin-top:-60px;" />
+                        </div>
+                        <div>
+                                <image src="images/skin/iconUserMini.png" style="margin-top:5px; margin-left:1%;" />
+                                
+                                <label value="CADASTRO DE PESSOA JURÍDICA" style="margin-top:5px;
+                                font-weight:bold; font-family: Verdana, Arial,Helvetica; font-size:20px;"/>
+                        </div>
+                        
+                </div>
+                
+ <!-- ########################################## FIM TOPO ##################################################3 -->

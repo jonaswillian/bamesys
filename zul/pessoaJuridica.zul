@@ -11,12 +11,7 @@
     
     xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
-   
-
-
-    <window apply="bamesys_lucas.PessoaJuridicaComposer">
-         
-         <style dynamic="true">
+ <style dynamic="true">
 			.mydb {
 			border: 1px solid gray;
 		     }
@@ -24,27 +19,62 @@
 		     font:18px bold;
 		     
 		     }
+		     .conlabelb{
+		     font:18px bold;
 		     
-		   	     
+		     }
+		   	 .titulo{
+		   	 font-weight:bold; font-family: Verdana, Arial,Helvetica; 
+		   	 font-size:24px; margin-top:-1px;
+		   	 } 
+             .erro{
+             font-weight:bold; 
+             color: #FA1515; 
+             margin-left:250px; 
+             }                
+             .errogrid{
+             font-weight:bold;
+             color: #FA1515;
+             width: 50px 
+               }
+             .sucesso
+             {
+             font-weight:bold;
+              color: #48c30b; 
+              margin-left:250px;
+              }    
          </style>
+   
+
+
+    <window apply="bamesys_lucas.PessoaJuridicaComposer">
+         
+       <include src="topo.zul" />
+                <h:br />
+                <h:br />
+                <h:br />
+                
+                          
+        <toolbarbutton id="btnVoltar" image="/images/voltar.png" label="Voltar" style="margin-left:87%;"/>    
+ 	             
+               <separator></separator>
+                
+         
          
     <div id="wLista">
+    
          <hlayout>
-           <grid width="1050px" style="border: 1px; margin-left:10%;">
-             <rows>
-               <row>
-                   <button id="btnNovo" image="/images/skin/user1_add.png" label="Inserir"/>
-               </row>
-             </rows>
-              
-           </grid>
-         </hlayout>         
+             <toolbarbutton id="btnNovo" image="/images/adicionar.png" label="Inserir" style="margin-left:100px;"  />
+                
+             <bandbox id="bdboxBusca" placeholder="Digite uma filial para pesquisar" width="970px" style="margin-left:2%;"/> 
+             
+                   
+        </hlayout>           
          
-         <separator> </separator>
+        
          <hlayout>
-	   		<listbox id="lstPJ" emptyMessage="Nenhum Usuário Cadastrado" 
-				
-				width="1050px" style="border: 6px solid #f1f1f1; margin-left:10%;"> 	
+	   		<listbox id="lstPJ" emptyMessage="Nenhum Usuário Cadastrado" 			
+				width="1050px" style="border: 6px solid #f1f1f1; margin-left:10%;" mold="paging" pageSize="15"> 	
 				<listhead>
         			<listheader sort="auto" label="Id" />
         			<listheader sort="auto" label="Filial" />
@@ -59,24 +89,69 @@
     </div>
          <separator> </separator>
          <separator> </separator>
-         <separator> </separator>   
-          
-    <div id="wCadastro">  
-      <hlayout>                     				
+         
+   <div id="wCons">  
+  
+   <hlayout>                     				
 	    <grid width="1050px" style="border: 6px solid #f1f1f1; margin-left:10%;">
-	     <columns> <column label="PESSOA JURÍDICA" width="250px" sclass="labelb" /> </columns>
+	     <columns> <column label="PESSOA JURÍDICA" width="350px" sclass="labelb" /> </columns>
 	     <rows>
 	  	
-	    <row>	    
-		<hlayout> <label value="Filial:" sclass="labelb" /> </hlayout>
-		<hlayout>  <label value="Representante:" sclass="labelb"/>	</hlayout>
-		<hlayout>  <label value="Atendente:" sclass="labelb"/>	</hlayout>
+	         <row>	    
+		      <hlayout>  <label value="Filial:" sclass="labelb" />       <label id="confilial" sclass="conlabelb" />               </hlayout>
+		      <hlayout>  <label value="Representante:" sclass="labelb"/> <label id="conrepresentante" sclass="conlabelb" />	       </hlayout>
+		      <hlayout>  <label value="Atendente:" sclass="labelb"/>     <label id="conatendente" sclass="conlabelb"  /> 	       </hlayout>
+		     </row>
+		 	
+		
+        </rows>
+       </grid>
+  </hlayout>
+    
+  <hlayout>
+    <grid width="1050px" style="border: 6px solid #f1f1f1; margin-left:10%;">
+	   <columns><column label="CARACTERIZAÇÃO DA EMPRESA" width="350px" sclass="labelb"/></columns>
+	
+	 <rows>
+		<row>		
+	    <hlayout> <label value="Razão Social:" sclass="labelb" />  <label id="conrazaosocial" sclass="conlabelb"/> </hlayout>
+		<hlayout> <label value="CNPJ:" sclass="labelb"/>           <label id="concnpj" sclass="conlabelb"/></hlayout>
+		<hlayout>  <label value="Fantasia:" sclass="labelb"/>      <label id="confantasia" sclass="conlabelb"/> </hlayout>
+		</row>
+	    
+	    
+    </rows>
+   </grid>
+   
+   
+  </hlayout>
+  </div>      
+         
+                
+    <div id="wCadastro">  
+        <hlayout style="margin-left:82%;">
+        <label value="*Campos Obrigatórios"  />
+        </hlayout>
+        
+      <hlayout>                           				
+	    <grid width="1050px" style="border: 6px solid #f1f1f1; margin-left:10%;">
+	     <columns> <column label="PESSOA JURÍDICA" sclass="labelb" /> </columns>
+	     <rows>
+	  	  	
+	    <row>	 
+	    <cell colspan="2" >
+	       <label value="Filial*:" sclass="labelb" /> 
+	    </cell>   		 
+		 <label value="Representante*:" sclass="labelb"/>	
+		 <label value="Atendente*:" sclass="labelb"/>	
 		</row>
 		 	
 		<row>
-		<hlayout><textbox id="filial" width="200px" sclass="mydb"/> </hlayout>
-		<hlayout><textbox id="representante" width="300px" sclass="mydb"/> </hlayout>
-		<hlayout><textbox id="atendente" width="300px" sclass="mydb"/> </hlayout>
+		 <cell colspan="2" >
+			<textbox id="filial" width="300px" sclass="mydb" maxlength="150"/> 
+		 </cell>
+		<textbox id="representante" width="300px" sclass="mydb" maxlength="150"/> 
+		<textbox id="atendente" width="300px" sclass="mydb" maxlength="150"/> 
 		</row>		
         
         <row>  
@@ -96,59 +171,63 @@
 	
 	<rows>
 		<row>		
-	    <hlayout> <label value="Razão Social:" sclass="labelb" /> </hlayout>
-		<hlayout> <label value="CNPJ:" sclass="labelb"/> </hlayout>
-		<hlayout>  <label value="Fantasia:" sclass="labelb"/> </hlayout>
+		
+	         <label value="Razão Social*:" sclass="labelb" /> 	    
+		     <label value="CNPJ*:" sclass="labelb"/> 		
+		     <label value="Fantasia*:" sclass="labelb"/> 
+		 
 		 </row>
 	    
 	    <row>
-		<hlayout> <textbox id="razaosocial" width="210px" sclass="mydb" /> </hlayout>
-		<hlayout> <textbox id="cnpj" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="fantasia" width="240px" sclass="mydb"/></hlayout>
-		<hlayout> <label value=" "       /> </hlayout>
+	   
+		     <textbox id="razaosocial" width="220px" sclass="mydb" maxlength="150" /> 		
+		     <textbox id="cnpj" width="170px" sclass="mydb"/> 		
+		     <textbox id="fantasia" width="240px" sclass="mydb" maxlength="150"/>
+		     <label value="" />
+		
 		</row>
 		
-		<row>		
-	    <hlayout> <label value="Inscrição Estadual:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="Inscrição Municipal:" sclass="labelb"/> </hlayout>
-		<hlayout> <label value="Endereço:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="Número:" sclass="labelb"/> </hlayout>
+		<row>				
+	       <label value="Inscrição Estadual*:"  sclass="labelb"/> 				 
+		   <label value="Inscrição Municipal*:" sclass="labelb"/> 		
+		   <label value="Endereço*:"  sclass="labelb" /> 	
+		   <label value="Número*:" sclass="labelb" /> 
 		
      	</row>
 		
-		<row>
-		<hlayout> <textbox id="ie" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="im" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="endereco" width="240px" sclass="mydb"/> </hlayout>
-		<hlayout> <intbox id="numero" width="100px" sclass="mydb"/> </hlayout>		
+		<row>		
+		    <textbox id="ie" width="170px" sclass="mydb"/> 	    
+		    <textbox id="im" width="170px" sclass="mydb"/> 		
+		    <textbox id="endereco" width="240px" sclass="mydb" maxlength="150"/>	
+		   <intbox id="numero" width="100px" sclass="mydb" constraint="no negative,no zero"/> 	
 		</row>
 	
 	    <row>			    
-     	<hlayout> <label value="Complemento:"  sclass="labelb"/> </hlayout>
-     	<hlayout> <label value="Bairro:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="CEP:" sclass="labelb"/> </hlayout>  
-		<hlayout> <label value="Cidade:" sclass="labelb"/> </hlayout>
+     	 <label value="Complemento:"  sclass="labelb"/>
+     	 <label value="Bairro*:"  sclass="labelb"/> 
+		 <label value="CEP*:" sclass="labelb"/> 
+		 <label value="Cidade*:" sclass="labelb"/> 
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="complemento" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="bairro" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="cep" width="120px"  sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="cidade" width="200px" sclass="mydb"/></hlayout>
+		 <textbox id="complemento" width="210px" sclass="mydb"/> 
+		 <textbox id="bairro" width="210px" sclass="mydb"/> 
+		  <textbox id="cep" width="120px"  sclass="mydb"/>
+		  <textbox id="cidade" width="200px" sclass="mydb"/>
 		</row>
 	
 	    <row>			    
-     	<hlayout> <label value="Estado:"  sclass="labelb"/> </hlayout>
-     	<hlayout> <label value="Telefone:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="Fax:" sclass="labelb"/> </hlayout>  
-		<hlayout> <label value="Email:" sclass="labelb"/> </hlayout>
+     	 <label value="Estado*:"  sclass="labelb"/> 
+     	 <label value="Telefone*:"  sclass="labelb"/> 
+		 <label value="Fax:" sclass="labelb"/>   
+		 <label value="Email:" sclass="labelb"/> 
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="estado" width="100px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="telefone" width="200px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="fax" width="200px" sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="email" width="240px" sclass="mydb"/></hlayout>
+		  <textbox id="estado" width="100px" sclass="mydb"/> 
+		  <textbox id="telefone" width="200px" sclass="mydb"/> 
+		  <textbox id="fax" width="200px" sclass="mydb"/>
+		  <textbox id="email" width="240px" sclass="mydb"/>
 		</row>
 		
 	
@@ -414,9 +493,9 @@
 	  <columns><column label="DADOS PARA ACESSO" width="250px" sclass="labelb"/></columns>
 	   <rows>				
 	    <row>			    
-     	<hlayout> <label value="Login:" sclass="labelb" /> </hlayout>
-     	<hlayout> <label value="Senha:"  sclass="labelb" width="350"/> </hlayout>
-		<hlayout> <label value="Senha Restrita (Acesso à movimentação):" sclass="labelb"/> </hlayout>  
+     	<hlayout> <label value="Login*:" sclass="labelb" /> </hlayout>
+     	<hlayout> <label value="Senha*:"  sclass="labelb" width="350"/> </hlayout>
+		<hlayout> <label value="Senha Restrita (Acesso à movimentação)*:" sclass="labelb"/> </hlayout>  
 		
 		</row>
 	
@@ -431,8 +510,8 @@
 		       <hlayout> <label value=" " /> </hlayout>
 		       <hlayout> <label value=" " /> </hlayout>
 		       <hlayout> 
-		       <button id="pj_btn_cancelar" label="Voltar" width="350"/>
-		       <button id="pj_btn_salvar" label="Salvar dados" width="350"/>
+		       <toolbarbutton id="btnCancelar" image="images/cancelar.png" label="Cancelar" width="350"/>
+		       <toolbarbutton id="pj_btn_salvar" image="images/salvar.png" label="Salvar dados" width="350"/>
 		       </hlayout>
 			</row>
 			
