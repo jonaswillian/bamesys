@@ -59,16 +59,13 @@
  	             
                <separator></separator>
                 
-         
+           <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LISTA PRINCIPAL CONSULTA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->    
          
     <div id="wLista">
     
          <hlayout>
-             <toolbarbutton id="btnNovo" image="/images/adicionar.png" label="Inserir" style="margin-left:100px;"  />
-                
-             <bandbox id="bdboxBusca" placeholder="Digite uma filial para pesquisar" width="970px" style="margin-left:2%;"/> 
-             
-                   
+             <toolbarbutton id="btnNovo" image="/images/adicionar.png" label="Inserir" style="margin-left:100px;"  />                
+             <bandbox id="bdboxBusca" placeholder="Digite uma filial para pesquisar" width="970px" style="margin-left:2%;"/>                    
         </hlayout>           
          
         
@@ -90,6 +87,8 @@
          <separator> </separator>
          <separator> </separator>
          
+           <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONSULTA COMPLETA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->    
+         
    <div id="wCons">  
   
    <hlayout>                     				
@@ -98,9 +97,9 @@
 	     <rows>
 	  	
 	         <row>	    
-		      <hlayout>  <label value="Filial:" sclass="labelb" />       <label id="confilial" sclass="conlabelb" />               </hlayout>
-		      <hlayout>  <label value="Representante:" sclass="labelb"/> <label id="conrepresentante" sclass="conlabelb" />	       </hlayout>
-		      <hlayout>  <label value="Atendente:" sclass="labelb"/>     <label id="conatendente" sclass="conlabelb"  /> 	       </hlayout>
+		      <hlayout>  <label value="Filial:" sclass="labelb" />       <textbox id="confilial" width="300"/>  </hlayout>
+		      <hlayout>  <label value="Representante:" sclass="labelb"/> <textbox id="conrepresentante"  />	 </hlayout>
+		      <hlayout>  <label value="Atendente:" sclass="labelb"/>     <textbox id="conatendente"   /> 	 </hlayout>
 		     </row>
 		 	
 		
@@ -110,15 +109,29 @@
     
   <hlayout>
     <grid width="1050px" style="border: 6px solid #f1f1f1; margin-left:10%;">
-	   <columns><column label="CARACTERIZAÇÃO DA EMPRESA" width="350px" sclass="labelb"/></columns>
+	   <columns><column label="CARACTERIZAÇÃO DA EMPRESA" width="250px" sclass="labelb"/></columns>
 	
 	 <rows>
-		<row>		
-	    <hlayout> <label value="Razão Social:" sclass="labelb" />  <label id="conrazaosocial" sclass="conlabelb"/> </hlayout>
-		<hlayout> <label value="CNPJ:" sclass="labelb"/>           <label id="concnpj" sclass="conlabelb"/></hlayout>
-		<hlayout>  <label value="Fantasia:" sclass="labelb"/>      <label id="confantasia" sclass="conlabelb"/> </hlayout>
+		<row>	
+		    <hlayout> <label value="Razão Social:" sclass="labelb" />  <textbox id="conrazaosocial" /> </hlayout>
+		    <hlayout> <label value="CNPJ:" sclass="labelb"/>           <textbox id="concnpj" /></hlayout>
+		    <hlayout>  <label value="Fantasia:" sclass="labelb"/>      <textbox id="confantasia" /> </hlayout>
+		
 		</row>
 	    
+	    <row>		
+	       <hlayout> <label value="Inscrição Estadual:" sclass="labelb" />  <label id="conie" sclass="conlabelb"/> </hlayout>
+		
+		
+		<hlayout> <label value="Inscrição Municipal:" sclass="labelb"/>  <label id="conim" sclass="conlabelb"/></hlayout>
+		
+		
+		<hlayout>  <label value="Endereço:" sclass="labelb"/>  <label id="conendereco" sclass="conlabelb"/> </hlayout>
+		
+		
+		<hlayout>  <label value="Número:" sclass="labelb"/>  <label id="connumero" sclass="conlabelb"/> </hlayout>
+		
+		</row>
 	    
     </rows>
    </grid>
@@ -127,7 +140,9 @@
   </hlayout>
   </div>      
          
-                
+         <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CADASTRO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->    
+         
+            
     <div id="wCadastro">  
         <hlayout style="margin-left:82%;">
         <label value="*Campos Obrigatórios"  />
@@ -536,6 +551,7 @@
             jq("$ie").mask("999.999.999.999");
             jq("$im").mask("9.999.999-9")
             jq("$telefone").mask("(99)9999-9999");
+            jq("$cep").mask("99999-999");
             jq("$fax").mask("(99)9999-9999");
             jq("$telefonecontador").mask("(99)9999-9999");
             jq("$documento1").mask("99.999.999/9999-99"); 

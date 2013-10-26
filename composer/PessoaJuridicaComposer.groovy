@@ -31,8 +31,9 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 	Datebox dataconstituicao, dataultimaalteracao, dataabertura
 	
 	Combobox cmbpossuifiliais
-
-	Label confilial, conrepresentante, conatendente, conrazaosocial, concnpj, confantasia
+   	
+	Textbox  confilial,conrepresentante, conatendente, conrazaosocial, concnpj, confantasia
+	Label conie, conim, conendereco, connumero
 	
 	
 	
@@ -92,6 +93,10 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 		conrazaosocial.value = conp.razaosocial
 		concnpj.value = conp.cnpj
 		confantasia.value = conp.fantasia
+		conie.value = conp.ie
+		conim.value = conp.im
+		conendereco.value = conp.endereco
+		connumero.value = conp.numero
 		
 		
 		wCons.visible = true
@@ -217,7 +222,7 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 	}
 	
 	
-	
+	/*
 	@Listen("onClick = #pj_btn_cancelar")
 	void retornarOLD() {
 		wCadastro.visible = false
@@ -225,7 +230,7 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 		wCons.visible = false
 		listarPJ()
 	}
-	
+	*/
 	@Listen("onClick = #btnNovo")
 	void adicionar() {
 		
@@ -428,23 +433,19 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 	           Clients.showNotification("Problemas no cadastro. Verifique os campos obrigatórios e tente novamente!", "error", null, null, 2000);
 			}
 			
-			print(ie.value.trim().replace(".",""))
-		
+					
 	}
 	
 	
-	//jq("$cnpj").mask("99.999.999/9999-99");
-	//jq("$ie").mask("999.999.999.999");
-	//jq("$im").mask("9.999.999-9")
-	//jq("$telefone").mask("(99)9999-9999");
+	
 	
 	boolean verificarSeCamposEstaoVazios(){
 		    if(filial.value.isEmpty() || representante.value.isEmpty() 
 				|| atendente.value.isEmpty() || razaosocial.value.isEmpty() 
-				|| cnpj.value.isEmpty() || fantasia.value.isEmpty() || ie.value.isEmpty() || ie.value.trim().replace(".","").length() < 12
-				|| im.value.isEmpty() || im.value.trim().replace(".","").replace("-","").length() < 8 || endereco.value.isEmpty() || bairro.value.isEmpty() 
-				|| cep.value.isEmpty() || estado.value.isEmpty() || telefone.value.isEmpty()
-				|| cidade.value.isEmpty() || login.value.isEmpty() || senha.value.isEmpty() 
+				|| cnpj.value.isEmpty() || cnpj.value.trim().replace(".","").replace("-","").replace("/","").replace("_","").length() < 14 || fantasia.value.isEmpty() || ie.value.isEmpty() || ie.value.trim().replace(".","").replace("_","").length() < 12
+				|| im.value.isEmpty() || im.value.trim().replace(".","").replace("-","").replace("_","").length() < 8 || endereco.value.isEmpty() || bairro.value.isEmpty() 
+				|| cep.value.isEmpty() || estado.value.isEmpty() || telefone.value.isEmpty() || telefone.value.trim().replace("(","").replace(")","").replace("_","").replace("-","").length() < 10
+				|| cidade.value.isEmpty() || login.value.isEmpty() || senha.value.isEmpty() || cep.value.trim().replace("-","").replace("_","").length() < 8
 				|| senharestrita.value.isEmpty() || numero.value == null)
 			 {  
 			
@@ -454,13 +455,7 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 		   }
 	
 	
-	boolean verificaAsMascaras(){
-		if(nomedoftf.getText().trim().replace(".", "").length() < 10){ //ele tira todos os pontos e deixa somento os caracteres validos
-		return false;
-		}
-		  
-		return true;
-		}
+	
 		 
 	
 	@Listen("onClick = #btnCancelar, #btnVoltar")
@@ -473,6 +468,26 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 }
 
 
+
+
+
+
+/*
+ -- 
+Depois que você tem o encontro verdadeiro com Cristo, sua vida não mais será a mesma... 
+Sim, nós temos a Alegria da Salvação! Em todos os momentos o Senhor é digno de toda adoração!!
+
+Porque Deus amou ao mundo de tal maneira que deu o seu Filho unigênito, para que todo o que nele crê não pereça, 
+mas tenha a vida eterna. João 3.16
+Mas Deus, sendo rico em Misericórdia, por causa do grande Amor com que nos amou, e estando nós mortos em nossos delitos, 
+nos deu vida juntamente com Cristo, pela Graça sois salvos. Efésios 2.4-5
+Porque isto é o meu Sangue, que é derramado em favor de muitos para o Perdão dos pecados. Mateus 26.28a
+
+O Evangelho confronta todas as pessoas como pecadores e oferece PERDÃO de pecados e VIDA ETERNA a todos aqueles 
+que dão as costas para o seu pecado e creem em CRISTO. Não importa quão bom ou mau você tenha sido. 
+Não importa de onde você é ou de qual contexto religioso você vem. Se você se ARREPENDER de seu pecado e CRER em CRISTO, 
+você será SALVO.
+ */
 	
 		
 		
