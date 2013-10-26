@@ -6,6 +6,7 @@ import org.zkoss.zk.ui.*;
 import org.zkoss.zk.ui.event.*
 import org.zkoss.zk.ui.select.annotation.*
 import org.zkoss.zul.*
+import org.zkoss.zk.ui.util.Clients;
 
 class UsuariosComposer extends zk.grails.Composer {		
 	Intbox id
@@ -13,7 +14,7 @@ class UsuariosComposer extends zk.grails.Composer {
 	Combobox cmbGrupo
 	Div winCadastro, winLista
 	Listbox lstUsuarios
-	Label lblLogin, lblResultado
+	Label lblLogin
 	
 	String loginaux
 	
@@ -41,10 +42,10 @@ class UsuariosComposer extends zk.grails.Composer {
 					listcell(label: user.login)
 					listcell(label: ""){
 						hlayout{
-							toolbarbutton(label: '      ', image: "/images/skin/editar.png",
+							toolbarbutton(label: '      ', image: "/images/editar.png",
 								onClick: { e-> this.editarUsuario(item);
 								} )
-							toolbarbutton(label: '      ', image: "/images/skin/excluir.png",
+							toolbarbutton(label: '      ', image: "/images/excluir.png",
 								onClick: { e-> this.excluirUsuario(item);
 								} )
 						}
@@ -106,7 +107,6 @@ class UsuariosComposer extends zk.grails.Composer {
 		senha.value=""
 		confirmarSenha.value=""
 		cmbGrupo.selectedIndex=0
-		lblResultado.value = ""
 	}	
 		
 	@Listen("onClick = #btnSalvar")
@@ -124,20 +124,16 @@ class UsuariosComposer extends zk.grails.Composer {
 		if(usuario.senha != senha.value) usuario.senha=senha.value.encodeAsSHA256()
 		
 		usuario.grupo=cmbGrupo.selectedItem.value								
-				
-		//println lblResultado.properties
 			
-		if (senhaValida() && !usuario.hasErrors() && usuario.save(flush:true)) {
-			lblResultado.value = "Usuário Cadastrado com Sucesso"
-			lblResultado.sclass = "sucesso"					
+		if (verificarSeCamposEstaoVazios() && verificarSenhaComConfirmacaoSenha() && !usuario.hasErrors() && usuario.save(flush:true)) {
+			Clients.showNotification("Usuário Cadastrado", "info", null, null, 2000);
 		}else {
-			lblResultado.value = "Problemas no cadastro de usuário. Verifique os campos e tente novamente"
-			lblResultado.sclass = "erro"
+			Clients.showNotification("Problemas no cadastro. Verifique os campos e tente novamente", "error", null, null, 2000);
 		}
 	}
 	
 	@Listen("onChange = #login")
-	void verificaLogin(){		
+	void verificarLoginExistente(){		
 		def logins = Usuario.findAllByLogin(login.value)	
 		
 		if((logins.size() > 0) && (loginaux != login.value)){
@@ -147,8 +143,15 @@ class UsuariosComposer extends zk.grails.Composer {
 		}		
 	}
 	
-	boolean senhaValida(){
+	boolean verificarSenhaComConfirmacaoSenha(){
 		if(senha.value!=confirmarSenha.value) {
+			return false
+		}
+		return true
+	}
+	
+	boolean verificarSeCamposEstaoVazios(){
+		if(nome.value.isEmpty() || login.value.isEmpty() || senha.value.isEmpty()) {
 			return false
 		}
 		return true

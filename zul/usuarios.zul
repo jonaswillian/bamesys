@@ -42,7 +42,7 @@
 		<h:br />
 		
 		<h:p class="titulo" style="margin-top:-80px">
-			<h:img src="images/skin/iconUserMini.png" align="absmiddle" />
+			<h:img src="images/iconUserMini.png" align="absmiddle" />
 			CADASTRO DE USUÁRIO
 		</h:p>
 		
@@ -50,7 +50,7 @@
 				
 		<div id="winLista" width="70%" style="position:fixed; top: 180px; left: 10px; z-index: 1000">
 			<hlayout>
-				<toolbarbutton id="btnNovo" image="/images/skin/adicionar.png" label="Inserir" />			
+				<toolbarbutton id="btnNovo" image="images/adicionar.png" label="Inserir" />			
 				<bandbox id="bdboxBuscaUsuario" placeholder="Digite um nome para pesquisar" style="position:fixed; left:500px"/>
 			</hlayout>
 						
@@ -71,8 +71,8 @@
 		
 		<div id="winCadastro" width="70%" style="position:fixed; top: 180px; left: 10px; z-index: 1000">
 			<hlayout>
-				<toolbarbutton id="btnVoltar" image="/images/skin/arrow_left.png" label="Voltar" />
-				<label id="lblResultado" ></label>
+				<label value="(*) Campos Obrigatórios" ></label>
+				<toolbarbutton id="btnVoltar" image="images/voltar.png" label="Voltar" style=" left:80%"/>				
 			</hlayout>
 			
 			<separator></separator>
@@ -90,13 +90,13 @@
 					</row>
 
 					<row>
-						<label value="Nome: " />
-						<textbox id="nome" maxlength="100" constraint="/^[a-zA-Z](?![a-zA-Z]+$).+$/: Nome e Sobrenome são obrigatórios" />
+						<label value="*Nome: " />
+						<textbox id="nome" maxlength="100" />
 					</row>
 
 					<row>
-						Grupo:
-						<combobox id="cmbGrupo" width="230px" constraint="/.[Administrador,Corretor,Funcionário,Gerente,Operador]+/: Escolha uma opção">
+						*Grupo:
+						<combobox id="cmbGrupo" width="230px">
 							<comboitem label="Administrador"
 								value="administrador" />
 							<comboitem label="Corretor"
@@ -110,18 +110,18 @@
 					</row>
 
 					<row>
-						<label value="Login: " />
-						<textbox id="login" maxlength="100" constraint="no empty:o Login é obrigatório" />
+						<label value="*Login: " />
+						<textbox id="login" maxlength="100" />
 						<label id="lblLogin" value="" sclass="errogrid" />
 					</row>
 
 					<row>
-						<label value="Senha: " />
-						<textbox id="senha" maxlength="100" type="password" constraint="no empty: a Senha é obrigatória"/>
+						<label value="*Senha: " />
+						<textbox id="senha" maxlength="100" type="password" />
 					</row>
 
 					<row>
-						<label value="Confirmar Senha: " />
+						<label value="*Confirmar Senha: " />
 						<textbox id="confirmarSenha" maxlength="100" c:onChange='pwdValid(this)' type="password" />						
                 		<label id="lblConfirmacaoSenha" value="" sclass="errogrid" />
 					</row>
@@ -133,10 +133,10 @@
 
 			<hbox style="position:fixed; left: 30px">
 				<toolbarbutton id="btnSalvar"
-					image="/images/skin/salvar.png" label="Salvar" />
+					image="images/salvar.png" label="Salvar" />
 				<space spacing="20px" />
 				<toolbarbutton id="btnCancelar"
-					image="/images/skin/cancelar.png" label="Cancelar" />
+					image="images/cancelar.png" label="Cancelar" />
 			</hbox>
 		</div>
 	</window>
