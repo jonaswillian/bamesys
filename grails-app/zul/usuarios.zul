@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
+<?link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'?>
+<?page title="Gerenciamento de Usuários"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="bamesys3.UsuariosComposer" style="height:100%;">
+
+        <div class="tudo">
+    		
+    		<div class="conteudo">
+    		
+    			<div class="topo">
+    				<div style="width:980px; margin: auto; padding-top:15px;">
+    					<h:img src="images/logo.png" />
+    				</div>
+				</div>
+				
+				<separator></separator>
+				
+				<div class="infos">
+					<a href="logout.zul" class="bot">SAIR</a>
+				</div>			
+				
+				<separator></separator>	
+    			
+    			<div class="principal">  				
+    				
+    				<div id="divLista">
+    				<label value="Usuários" sclass="titulo" />
+    				<div style="text-align:right; width:940px; margin-bottom:10px;"><a href="" id="btnNovo" class="bot2">INSERIR</a></div>
+						
+						<separator> </separator>    		
+			    		<listbox id="lstUsuarios" emptyMessage="Nenhum Usuário Cadastrado" 
+							multiple="true" checkmark="false" mold="paging" pageSize="10" vflex="1"> 	
+							<listhead>
+			        			<listheader sort="auto" label="ID" />
+			        			<listheader sort="auto" label="Nome" />
+			        			<listheader sort="auto" label="Grupo" />
+			        			<listheader sort="auto" label="Login" />
+			        			<listheader sort="auto" label="Ações" />
+			        		</listhead>				
+						</listbox>
+    				</div>
+    		
+    			
+    				<div id="divCadastro">	
+    				<label value="Cadastrar Usuário" sclass="titulo" />
+    				<separator> </separator>
+			        	<grid>
+			        		<columns>
+								<column width="200px" />
+								<column value=""/>
+							</columns>
+						
+							<rows>
+							<row>
+								<label value="Código: " visible="false" />
+								<intbox id="id" value="0" visible="false" />
+							</row>
+						
+							<row>
+								<label value="Nome: " />
+								<textbox id="nome" maxlength="100" class="campoTxt" />					
+							</row>
+							
+							<row>
+								Grupo: 			
+								<combobox id="cmbGrupo" width="230px" class="combo">
+									<comboitem label="Administrador" value="administrador"/>									
+									<comboitem label="Corretor" value="corretor"/>
+									<comboitem label="Funcionário" value="funcionario"/>
+									<comboitem label="Gerente" value="gerente"/>
+									<comboitem label="Operador" value="operador"/>
+								</combobox>
+							</row>				
+						
+							<row>
+								<label value="Login: " />
+								<textbox id="login" maxlength="100" class="campoTxt"/>					
+							</row>
+							
+							<row>
+								<label value="Senha: " />
+								<textbox id="senha" maxlength="100" type="password" class="campoTxt"/>
+							</row>
+						
+							<row>
+								<label value="Confirmar Senha: " />
+								<textbox id="confirmarSenha" maxlength="100" type="password" class="campoTxt" />
+							</row>
+														
+							</rows>
+						</grid>
+			
+					<separator> </separator>
+			
+					<hbox>
+						<toolbarbutton id="btnSalvar" image="images/skin/salvar.png" label="Salvar" />
+						<space spacing="20px" />
+						<toolbarbutton id="btnCancelar" image="images/skin/cancelar.png" label="Cancelar" />			
+					</hbox>
+				</div>
+    			
+    			<div class="clear"></div>
+    		
+    		</div>
+    		
+    		<div class="rodape">
+				<div style="width:980px; margin: auto; padding:15px;">
+					Bamesys 2013 - Todos os direitos reservados
+					<span style="display:inline; margin-left:400px;">Desenvolvido por FATEA 2013</span>
+				</div>
+			</div>
+    		    		
+    	</div>
+    </div>
+
+    </window>
+
+</zk>
