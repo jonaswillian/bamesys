@@ -247,64 +247,64 @@
 		
 	
 	    <row>			    
-     	<hlayout> <label value="Website:"  sclass="labelb"/> </hlayout>
-     	<hlayout> <label value="Contador responsável:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="Registro CRC:" sclass="labelb"/> </hlayout>  
-		<hlayout> <label value="Telefone do Contador:" sclass="labelb"/> </hlayout>
+     	 <label value="Website:"  sclass="labelb"/> 
+     	 <label value="Contador responsável:"  sclass="labelb"/> 
+		 <label value="Registro CRC:" sclass="labelb"/>   
+		 <label value="Telefone do Contador:" sclass="labelb"/> 
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="website" width="210px" sclass="mydb" /> </hlayout>
-		<hlayout> <textbox id="contador" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="crc" width="170px" sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="telefonecontador" width="170px" sclass="mydb"/></hlayout>
+		 <textbox id="website" width="210px" sclass="mydb" />
+		 <textbox id="contador" width="210px" sclass="mydb"/>
+		 <textbox id="crc" width="170px" sclass="mydb"/>
+		 <textbox id="telefonecontador" width="170px" sclass="mydb"/>
 		</row>
 	
 	    <row>			    
-     	<hlayout> <label value="Atividade Principal:"  sclass="labelb"/> </hlayout>
-     	<hlayout> <label value="% Vendas:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="Faturamento Último mês:" sclass="labelb"/> </hlayout>  
-		<hlayout> <label value="Faturamento Últimos 12 meses:" sclass="labelb"/> </hlayout>
+     	 <label value="Atividade Principal:"  sclass="labelb"/> 
+     	 <label value="% Vendas:"  sclass="labelb"/> 
+		 <label value="Faturamento Último mês:" sclass="labelb"/> 
+		 <label value="Faturamento Últimos 12 meses:" sclass="labelb"/>
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="atividadeprincipal" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout> <intbox id="porcentagemvendas" width="100px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="faturamentoultimomes" width="100px" sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="faturamentoultimos12meses" width="100px" sclass="mydb"/></hlayout>
+		 <textbox id="atividadeprincipal" width="210px" sclass="mydb"/> 
+		 <intbox id="porcentagemvendas" width="100px" sclass="mydb"/> 
+		 <textbox id="faturamentoultimomes" width="100px" sclass="mydb"/>
+		  <textbox id="faturamentoultimos12meses" width="100px" sclass="mydb"/>
 		</row>
 	
 	    <row>			    
-     	<hlayout> <label value="Contato na Empresa:"  sclass="labelb"/> </hlayout>
-     	<hlayout> <label value="Cargo:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="Sociedade:" sclass="labelb"/> </hlayout>  
-		<hlayout> <label value="Data da Constituição:" sclass="labelb"/> </hlayout>
+     	 <label value="Contato na Empresa:"  sclass="labelb"/> 
+     	 <label value="Cargo:"  sclass="labelb"/> 
+		 <label value="Sociedade:" sclass="labelb"/>   
+		 <label value="Data da Constituição:" sclass="labelb"/> 
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="nomecontato" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="cargocontato" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="sociedade" width="210px" sclass="mydb"/></hlayout>
-		<hlayout>  <datebox id="dataconstituicao" width="150px" format="yyyy-MM-dd"  sclass="mydb"/></hlayout>
+		 <textbox id="nomecontato" width="210px" sclass="mydb"/> 
+		 <textbox id="cargocontato" width="210px" sclass="mydb"/>
+		 <textbox id="sociedade" width="210px" sclass="mydb"/>
+		 <datebox id="dataconstituicao" width="150px" format="yyyy-MM-dd"  sclass="mydb"/>
 		</row>
 	
 	    <row>		
-	    <hlayout> <label value="Capital Integralizado:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="Data Última Alteração:" sclass="labelb"/> </hlayout>
-		<hlayout>  <label value="Número de Sócios:" sclass="labelb"/> </hlayout>
+	     <label value="Capital Integralizado:"  sclass="labelb"/> 
+		 <label value="Data Última Alteração:" sclass="labelb"/> 
+	     <label value="Número de Sócios:" sclass="labelb"/> 
 		 </row>
 	    
 	    <row>
-		<hlayout> <textbox id="capital" width="200px" sclass="mydb"/> </hlayout>
-		<hlayout> <datebox id="dataultimaalteracao" width="150px" format="yyyy-MM-dd" sclass="mydb"/> </hlayout>
-		<hlayout>  <intbox id="nsocios" width="100px" sclass="mydb"/></hlayout>
-		<hlayout> <label value=" "       /> </hlayout>
+		 <textbox id="capital" width="200px" sclass="mydb"/> 
+		 <datebox id="dataultimaalteracao" width="150px" format="yyyy-MM-dd" sclass="mydb"/> 
+		 <intbox id="nsocios" width="100px" sclass="mydb"/>
+		 <label value=" "       /> 
 		</row>
 	
 		<row>		
-	    <hlayout> <label value="Possui Filiais:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="Número de Filiais:" sclass="labelb"/> </hlayout>
-		<hlayout>  <label value="Número de Funcionários:" sclass="labelb"/> </hlayout>
+	     <label value="Possui Filiais:"  sclass="labelb"/> 
+		 <label value="Número de Filiais:" sclass="labelb"/> 
+		 <label value="Número de Funcionários:" sclass="labelb"/> 
 		 </row>
 	    
 	    <row>
@@ -314,9 +314,9 @@
 		        <comboitem label="Não" value="nao" />
 		    </combobox> 
 		</hlayout>
-		<hlayout> <intbox id="nfiliais" width="100px" sclass="mydb"/> </hlayout>
-		<hlayout>  <intbox id="nfuncionarios" width="100px" sclass="mydb"/></hlayout>
-		<hlayout> <label value=" "       /> </hlayout>
+		 <intbox id="nfiliais" width="100px" sclass="mydb"/> 
+		 <intbox id="nfuncionarios" width="100px" sclass="mydb"/>
+		 <label value=" "       /> 
 		</row>
 		
 		<row> <label value=" " /></row>		
@@ -332,17 +332,17 @@
 	  <columns><column label="REPRESENTANTE(S) LEGAL(IS)" width="250px" sclass="labelb"/></columns>
 	   <rows>				
 	    <row>			    
-     	<hlayout> <label value="Representante 1:" sclass="labelb" /> </hlayout>
-     	<hlayout> <label value="Representante 2:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="Representante 3:" sclass="labelb"/> </hlayout>  
-		<hlayout> <label value="Assinatura:" sclass="labelb"/> </hlayout>
+     	<label value="Representante 1:" sclass="labelb" /> 
+     	<label value="Representante 2:"  sclass="labelb"/> 
+		<label value="Representante 3:" sclass="labelb"/>   
+		<label value="Assinatura:" sclass="labelb"/> 
 		</row>
 	
 	    <row>
-		<hlayout> <intbox id="id_representante1" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout> <intbox id="id_representante2" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout> <intbox id="id_representante3" width="210px" sclass="mydb"/></hlayout>
-		<hlayout> <textbox id="assinatura" width="240px" sclass="mydb"/></hlayout>
+		 <intbox id="id_representante1" width="210px" sclass="mydb"/> 
+		 <intbox id="id_representante2" width="210px" sclass="mydb"/> 
+		 <intbox id="id_representante3" width="210px" sclass="mydb"/>
+		 <textbox id="assinatura" width="240px" sclass="mydb"/>
 		</row>		
 			
 			<row> <label value=" " /></row>	
@@ -357,45 +357,45 @@
 	  <columns><column label="PRINCIPAIS COTISTAS" width="250px" sclass="labelb"/></columns>
 	   <rows>				
 	    <row>			    
-     	<hlayout> <label value="Nome:" sclass="labelb" /> </hlayout>
-     	<hlayout> <label value="CNPJ/CPF:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="%:" sclass="labelb"/> </hlayout>  
-		<hlayout> <label value="Valor:" sclass="labelb"/> </hlayout>
+     	 <label value="Nome:" sclass="labelb" /> 
+     	 <label value="CNPJ/CPF:"  sclass="labelb"/> 
+		 <label value="%:" sclass="labelb"/>  
+		 <label value="Valor:" sclass="labelb"/> 
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="cotista1" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="documento1" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout>  <intbox id="porcentagem1" width="100px" sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="valor1" width="140px" sclass="mydb"/></hlayout>
+		 <textbox id="cotista1" width="210px" sclass="mydb"/> 
+		 <textbox id="documento1" width="170px" sclass="mydb"/> 
+		 <intbox id="porcentagem1" width="100px" sclass="mydb"/>
+		 <textbox id="valor1" width="140px" sclass="mydb"/>
 		</row>		
 		
 		 <row>			    
-     	<hlayout> <label value="Nome:" sclass="labelb" /> </hlayout>
-     	<hlayout> <label value="CNPJ/CPF:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="%:" sclass="labelb"/> </hlayout>  
-		<hlayout> <label value="Valor:" sclass="labelb"/> </hlayout>
+     	 <label value="Nome:" sclass="labelb" />
+     	 <label value="CNPJ/CPF:"  sclass="labelb"/> 
+		 <label value="%:" sclass="labelb"/>  
+		 <label value="Valor:" sclass="labelb"/> 
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="cotista2" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="documento2" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout>  <intbox id="porcentagem2" width="100px" sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="valor2" width="140px" sclass="mydb"/></hlayout>
+		 <textbox id="cotista2" width="210px" sclass="mydb"/> 
+		 <textbox id="documento2" width="170px" sclass="mydb"/> 
+		 <intbox id="porcentagem2" width="100px" sclass="mydb"/>
+		 <textbox id="valor2" width="140px" sclass="mydb"/>
 		</row>
 		
 		 <row>			    
-     	<hlayout> <label value="Nome:" sclass="labelb" /> </hlayout>
-     	<hlayout> <label value="CNPJ/CPF:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="%:" sclass="labelb"/> </hlayout>  
-		<hlayout> <label value="Valor:" sclass="labelb"/> </hlayout>
+     	 <label value="Nome:" sclass="labelb" />
+     	 <label value="CNPJ/CPF:"  sclass="labelb"/> 
+		 <label value="%:" sclass="labelb"/>  
+		 <label value="Valor:" sclass="labelb"/> 
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="cotista3" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="documento3" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout>  <intbox id="porcentagem3" width="100px" sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="valor3" width="140px" sclass="mydb"/></hlayout>
+		 <textbox id="cotista3" width="210px" sclass="mydb"/> 
+		 <textbox id="documento3" width="170px" sclass="mydb"/> 
+		 <intbox id="porcentagem3" width="100px" sclass="mydb"/>
+		 <textbox id="valor3" width="140px" sclass="mydb"/>
 		</row>
 			
 			<row> <label value=" " /></row>	
@@ -409,29 +409,29 @@
 	  <columns><column label="INFORMAÇÕES BANCÁRIAS" width="250px" sclass="labelb"/></columns>
 	   <rows>				
 	    <row>			    
-     	<hlayout> <label value="Banco Nº:" sclass="labelb" /> </hlayout>
-     	<hlayout> <label value="Nome do Banco:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="Agência Nº:" sclass="labelb"/> </hlayout>  
-		<hlayout> <label value="Conta Corrente:" sclass="labelb"/> </hlayout>
+     	 <label value="Banco Nº:" sclass="labelb" /> 
+     	 <label value="Nome do Banco:"  sclass="labelb"/> 
+		 <label value="Agência Nº:" sclass="labelb"/>  
+		 <label value="Conta Corrente:" sclass="labelb"/> 
 		</row>
 	
 	    <row>
-		<hlayout> <intbox id="nbanco" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="nomebanco" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="nagencia" width="170px" sclass="mydb"/></hlayout>
-		<hlayout>  <textbox id="contacorrente" width="170px" sclass="mydb"/></hlayout>
+		 <intbox id="nbanco" width="210px" sclass="mydb"/> 
+		 <textbox id="nomebanco" width="210px" sclass="mydb"/> 
+		 <textbox id="nagencia" width="170px" sclass="mydb"/>
+		 <textbox id="contacorrente" width="170px" sclass="mydb"/>
 		</row>		
 			
 		<row>			    
-     	<hlayout> <label value="Data de Abertura:" sclass="labelb" /> </hlayout>
-     	<hlayout> <label value="Telefone do Banco:"  sclass="labelb"/> </hlayout>
+     	 <label value="Data de Abertura:" sclass="labelb" /> 
+     	 <label value="Telefone do Banco:"  sclass="labelb"/> 
 		</row>
 	
 	    <row>
-		<hlayout> <datebox id="dataabertura" width="150px" format="yyyy-MM-dd" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="telefonebanco" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout> <label value=" "       /> </hlayout>
-		<hlayout> <label value=" "       /> </hlayout>
+		 <datebox id="dataabertura" width="150px" format="yyyy-MM-dd" sclass="mydb"/> 
+		 <textbox id="telefonebanco" width="170px" sclass="mydb"/>
+		 <label value=" "       /> 
+		 <label value=" "       /> 
 		</row>			
 			
 			
@@ -446,55 +446,55 @@
 	  <columns><column label="REFÊRENCIAS" width="250px" sclass="labelb"/></columns>
 	   <rows>				
 	    <row>			    
-     	<hlayout> <label value="Fornecedor/Parceiro:" sclass="labelb" /> </hlayout>
-     	<hlayout> <label value="CNPJ/CPF:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="Telefone:" sclass="labelb"/> </hlayout>  
+     	 <label value="Fornecedor/Parceiro:" sclass="labelb" /> 
+     	 <label value="CNPJ/CPF:"  sclass="labelb"/> 
+		 <label value="Telefone:" sclass="labelb"/>  
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="ref1" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="docref1" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="foneref1" width="170px" sclass="mydb"/></hlayout>
-		<hlayout> <label value=" "       /> </hlayout>
+		 <textbox id="ref1" width="210px" sclass="mydb"/> 
+		 <textbox id="docref1" width="170px" sclass="mydb"/> 
+		 <textbox id="foneref1" width="170px" sclass="mydb"/>
+		 <label value=" "       />
 		</row>		
 		
 		<row>			    
-     	<hlayout> <label value="Fornecedor/Parceiro:" sclass="labelb" /> </hlayout>
-     	<hlayout> <label value="CNPJ/CPF:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="Telefone:" sclass="labelb"/> </hlayout>  
+     	 <label value="Fornecedor/Parceiro:" sclass="labelb" /> 
+     	 <label value="CNPJ/CPF:"  sclass="labelb"/> 
+		 <label value="Telefone:" sclass="labelb"/> 
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="ref2" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="docref2" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="foneref2" width="170px" sclass="mydb"/></hlayout>
-		<hlayout> <label value=" "       /> </hlayout>
+		 <textbox id="ref2" width="210px" sclass="mydb"/> 
+		 <textbox id="docref2" width="170px" sclass="mydb"/> 
+		 <textbox id="foneref2" width="170px" sclass="mydb"/>
+		 <label value=" "       /> 
 		</row>		
 		
 		<row>			    
-     	<hlayout> <label value="Fornecedor/Parceiro:" sclass="labelb" /> </hlayout>
-     	<hlayout> <label value="CNPJ/CPF:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="Telefone:" sclass="labelb"/> </hlayout>  
+     	 <label value="Fornecedor/Parceiro:" sclass="labelb" /> 
+     	 <label value="CNPJ/CPF:"  sclass="labelb"/> 
+		 <label value="Telefone:" sclass="labelb"/>  
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="ref3" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="docref3" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="foneref3" width="170px" sclass="mydb"/></hlayout>
-		<hlayout> <label value=" "       /> </hlayout>
+		 <textbox id="ref3" width="210px" sclass="mydb"/> 
+		 <textbox id="docref3" width="170px" sclass="mydb"/> 
+		 <textbox id="foneref3" width="170px" sclass="mydb"/>
+		 <label value=" "       /> 
 		</row>		
 			
 		<row>			    
-     	<hlayout> <label value="Fornecedor/Parceiro:" sclass="labelb" /> </hlayout>
-     	<hlayout> <label value="CNPJ/CPF:"  sclass="labelb"/> </hlayout>
-		<hlayout> <label value="Telefone:" sclass="labelb"/> </hlayout>  
+     	 <label value="Fornecedor/Parceiro:" sclass="labelb" /> 
+     	 <label value="CNPJ/CPF:"  sclass="labelb"/> 
+		 <label value="Telefone:" sclass="labelb"/> 
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="ref4" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="docref4" width="170px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="foneref4" width="170px" sclass="mydb"/></hlayout>
-		<hlayout> <label value=" "       /> </hlayout>
+		 <textbox id="ref4" width="210px" sclass="mydb"/> 
+		 <textbox id="docref4" width="170px" sclass="mydb"/> 
+		 <textbox id="foneref4" width="170px" sclass="mydb"/>
+		 <label value=" "       /> 
 		</row>	
 			
 			<row> <label value=" " /></row>	
@@ -508,19 +508,19 @@
 	  <columns><column label="DADOS PARA ACESSO" width="250px" sclass="labelb"/></columns>
 	   <rows>				
 	    <row>			    
-     	<hlayout> <label value="Login*:" sclass="labelb" /> </hlayout>
-     	<hlayout> <label value="Senha*:"  sclass="labelb" width="350"/> </hlayout>
-		<hlayout> <label value="Senha Restrita (Acesso à movimentação)*:" sclass="labelb"/> </hlayout>  
+     	 <label value="Login*:" sclass="labelb" />
+     	 <label value="Senha*:"  sclass="labelb" width="350"/> 
+		 <label value="Senha Restrita (Acesso à movimentação)*:" sclass="labelb"/> 
 		
 		</row>
 	
 	    <row>
-		<hlayout> <textbox id="login" width="210px" sclass="mydb"/> </hlayout>
-		<hlayout> <textbox id="senha"  type="password" width="180px" sclass="mydb"/> </hlayout>
-		<hlayout>  <textbox id="senharestrita"  type="password" width="180px" sclass="mydb"/></hlayout>
+		 <textbox id="login" width="210px" sclass="mydb"/> 
+		 <textbox id="senha"  type="password" width="180px" sclass="mydb"/> 
+		 <textbox id="senharestrita"  type="password" width="180px" sclass="mydb"/>
 		</row>		
 			
-					   
+			<!--  COMENTADO ESSA PARTE EMBAIXO		   
 			<row align="right"> 
 		       <hlayout> <label value=" " /> </hlayout>
 		       <hlayout> <label value=" " /> </hlayout>
@@ -535,12 +535,26 @@
 			<label value=" " />
 			<label value=" " />
 			</row>	
-			
+			    -->
        </rows>
 	 </grid>
     </hlayout>
   </div>
   
+ 
+   <div id="wBotoes">  
+        <hlayout style="margin-left:80%;">
+        <toolbarbutton id="btnCancelar" image="images/cancelar.png" label="Cancelar" width="350"/>
+		<toolbarbutton id="pj_btn_salvar" image="images/salvar.png" label="Salvar dados" width="350"/>
+        </hlayout>
+        
+        <h:br />
+        <h:br />
+        
+   </div>
+ 
+ 
+ 
  
   
   <script type="text/javascript" src="/js/jquery.maskedinput.js"></script>

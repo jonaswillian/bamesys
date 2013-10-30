@@ -14,7 +14,7 @@ import bamesys_lucas.*;
 class PessoaJuridicaComposer extends zk.grails.Composer {
 
 	
-	Div wLista, wCadastro, wCons
+	Div wLista, wCadastro, wCons, wBotoes
 	
 	Listbox lstPJ
 	
@@ -43,6 +43,7 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 		wCadastro.visible = false
 		wLista.visible = true
 		wCons.visible = false
+		wBotoes.visible = false
 		listarPJ()
     }
 
@@ -83,25 +84,98 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 	
 	
 	void visualPessoa(Listitem item) {
-		PessoaJuridica conp=item.value
+		PessoaJuridica upj=item.value
 		
-		id.value = conp.id
-		confilial.value=conp.filial
-		conrepresentante.value = conp.representante
-		conatendente.value = conp.atendente
+		id.value = upj.id
+		filial.value= upj.filial
+		representante.value=upj.representante
 		
-		conrazaosocial.value = conp.razaosocial
-		concnpj.value = conp.cnpj
-		confantasia.value = conp.fantasia
-		conie.value = conp.ie
-		conim.value = conp.im
-		conendereco.value = conp.endereco
-		connumero.value = conp.numero
+		atendente.value= upj.atendente
+		razaosocial.value= upj.razaosocial
+		cnpj.value= upj.cnpj
+		fantasia.value=upj.fantasia
+		ie.value=upj.ie
+		im.value=upj.im
+		endereco.value=upj.endereco
+		numero.value=upj.numero
+		complemento.value=upj.complemento
+		bairro.value=upj.bairro
+		cidade.value=upj.cidade
+		estado.value=upj.estado
+		cep.value=upj.cep
+		website.value=upj.website
+		telefone.value=upj.telefone
+		fax.value=upj.fax
+		email.value=upj.email
+		contador.value=upj.contador
+		crc.value=upj.crc
+		telefonecontador.value=upj.telefonecontador
+		atividadeprincipal.value=upj.atividadeprincipal
+		porcentagemvendas.value=upj.porcentagemvendas
+		faturamentoultimomes.value=upj.faturamentoultimomes
+		faturamentoultimos12meses.value=upj.faturamentoultimos12meses
+		nomecontato.value=upj.nomecontato
+		cargocontato.value=upj.cargocontato
+		sociedade.value=upj.sociedade
+		dataconstituicao.value=upj.dataconstituicao
+		capital.value=upj.capital
+		dataultimaalteracao.value=upj.dataultimaalteracao
+		nsocios.value=upj.nsocios
+		cmbpossuifiliais.selectedItem=cmbpossuifiliais.items.find({it.value == upj.possuifiliais})
 		
+		nfiliais.value=upj.nfiliais
+		nfuncionarios.value=upj.nfuncionarios
+		id_representante1.value=upj.id_representante1
+		id_representante2.value=upj.id_representante2
+		id_representante3.value=upj.id_representante3
+		assinatura.value=upj.assinatura
+		cotista1.value=upj.cotista1
+		documento1.value=upj.documento1
+		porcentagem1.value=upj.porcentagem1
+		valor1.value=upj.valor1
 		
-		wCons.visible = true
-		wCadastro.visible = false
+		cotista2.value=upj.cotista2
+		documento2.value=upj.documento2
+		porcentagem2.value=upj.porcentagem2
+		valor2.value=upj.valor2
+		
+		cotista3.value=upj.cotista3
+		documento3.value=upj.documento3
+		porcentagem3.value=upj.porcentagem3
+		valor3.value=upj.valor3
+		
+		nbanco.value=upj.nbanco
+		nomebanco.value=upj.nomebanco
+		nagencia.value=upj.nagencia
+		contacorrente.value=upj.contacorrente
+		dataabertura.value=upj.dataabertura
+		telefonebanco.value=upj.telefonebanco
+	
+		ref1.value=upj.ref1
+		docref1.value=upj.docref1
+		foneref1.value=upj.foneref1
+		
+		ref2.value=upj.ref2
+		docref2.value=upj.docref2
+		foneref2.value=upj.foneref2
+		
+		ref3.value=upj.ref3
+		docref3.value=upj.docref3
+		foneref3.value=upj.foneref3
+		
+		ref4.value=upj.ref4
+		docref4.value=upj.docref4
+		foneref4.value=upj.foneref4
+			
+		login.value=upj.login
+		senha.value=upj.senha
+		senharestrita.value=upj.senharestrita
+		
+				
+		wCadastro.visible = true
 		wLista.visible = false
+		wCons.visible = false
+		wBotoes.visible = false
 	}
 	
 	
@@ -196,6 +270,7 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 		
 				
 		wCadastro.visible = true
+		wBotoes.visible = true
 		wLista.visible = false
 		wCons.visible = false
 	}
@@ -236,6 +311,7 @@ class PessoaJuridicaComposer extends zk.grails.Composer {
 		
 		
 		wCadastro.visible = true
+		wBotoes.visible = true
 		wLista.visible = false
 		wCons.visible = false
 		
