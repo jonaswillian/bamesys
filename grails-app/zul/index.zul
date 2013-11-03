@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
+<?link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'?>
+<?page title="Bamesys - Sistema Administrativo"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="bamesys3.IndexComposer">
+
+        <div class="login">
+        	<div class="areaform">
+        		<div class="logocliente"><h:img src="images/logocliente.png" vspace="12" /></div>
+        		<div align="center"><h:img src="images/areaadmin.png" vspace="12" /></div>
+        		<textbox id="txtLogin" class="campoLogin" placeholder="Usuário" />
+        		<separator></separator>
+        		<textbox id="txtSenha" class="campoLogin" placeholder="Senha" type="password" />
+        		<separator></separator>
+        		<div id="botLogin"><h:img src="images/botLogin.png" vspace="12" /></div>
+        	</div>
+        </div>
+
+    </window>
+
+</zk>

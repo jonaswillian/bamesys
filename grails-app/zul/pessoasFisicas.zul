@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
+<?link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'?>
+<?page title="Gerenciamento de Pessoas Físicas"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+	
+	<!-- bamesys3.PessoasFisicasComposer -->
+	
+    <window apply="bamesys3.PessoasFisicasComposer" style="height:100%;">
+
+        <div class="tudo">
+    		
+    		<div class="conteudo">
+    		
+    			<div class="topo">
+    				<div style="width:980px; margin: auto; padding-top:15px;">
+    					<h:img src="images/logo.png" />
+    				</div>
+				</div>
+				
+				<separator></separator>
+				
+				<div class="infos" id="barraInfo">
+					<a href="home.zul" class="bot"> VOLTAR AO MENU</a>
+					<a href="logout.zul" class="bot">SAIR</a>
+				</div>			
+				
+				<separator></separator>	
+				
+       			<div class="principal">  	
+       							<div id="divLista">
+    				<label value="Pessoa Física" sclass="titulo" />
+    				<div style="text-align:right; width:940px; margin-bottom:10px;"><a href="" id="btnNovo" class="bot2">INSERIR</a></div>
+						
+						<separator> </separator>    		
+			    		<listbox id="lstPf" emptyMessage="Não há cadastrados!" 
+							multiple="true" checkmark="false" mold="paging" pageSize="10" vflex="1"> 	
+							<listhead>
+								<listheader label="Código"></listheader>
+								<listheader label="Nome"></listheader>
+								<listheader label="Telefone"></listheader> 
+							</listhead>				
+						</listbox>
+    			</div>
+    		
+    			
+    			<div id="divCadastro">	
+    				<label value="Cadastrar Pessoa Física" sclass="titulo" />
+    				<separator> </separator>
+					<grid>
+						<columns>
+								<column label="DADOS INICIAIS" width="250px" />
+							</columns>
+							<rows>
+								<row visible="false">
+									<hlayout>
+										<label value="Código"  visible="false" />
+									</hlayout>
+								</row>
+								
+								<row visible="false">
+									<hlayout>
+										<intbox width="200px" class="campoTxt" id="intCodigo" visible="false" />
+									</hlayout>
+								</row>
+	
+								<row>
+									<hlayout>
+										<label value="Filial:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Representante:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Atendente:"  />
+									</hlayout>
+								</row>
+	
+								<row>				
+									<hlayout>
+										<combobox width="200px" id="cmbFilial" class="campoTxt">
+											<comboitem label="Guaratinguetá" />
+											<comboitem label="Lorena" />
+										</combobox>										
+									</hlayout>
+									<hlayout>
+										<textbox width="200px" class="campoTxt" id="txtRepresentante" />
+									</hlayout>
+									<hlayout>
+										<textbox width="200px" class="campoTxt" id="txtAtendente" />
+									</hlayout>
+								</row>
+				
+								<row>
+									<label value=" " />
+								</row>
+	
+							</rows>
+						</grid>
+					
+						<h:br /><h:br />
+	
+						<hlayout>
+	
+						<grid>
+							<columns>
+								<column label="DADOS PESSOAIS" width="250px" />
+							</columns>
+				
+							<rows>
+								<row>
+									<hlayout>
+										<label value="Nome:"  />
+									</hlayout>
+									<hlayout>
+										<label value="CPF:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Data de nascimento:"  />
+									</hlayout>
+				
+								</row>
+				
+								<row>
+									<hlayout>
+										<textbox width="220px" id="txtNome" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<textbox width="150px" constraint="no empty" id="txtCpf" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<datebox width="100px" id="dbDataNasc" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<label value=" " />
+									</hlayout>
+								</row>
+				
+								<row>
+									<hlayout>
+										<label value="Naturalidade:"  />
+									</hlayout>
+									<hlayout>
+										<label value="UF:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Nacionalidade:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Sexo:"  />
+									</hlayout>
+				
+								</row>
+				
+								<row>
+									<hlayout>
+										<textbox width="200px" id="txtNaturalidade" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<combobox width="100px" id="cmbUfNaturalidade" class="campoTxt">
+											<comboitem label="AC" />
+											<comboitem label="AL" />
+											<comboitem label="AM" />
+											<comboitem label="AP" />
+											<comboitem label="BA" />
+											<comboitem label="CE" />
+											<comboitem label="DF" />
+											<comboitem label="ES" />
+											<comboitem label="GO" />
+											<comboitem label="MA" />
+											<comboitem label="MG" />
+											<comboitem label="MS" />
+											<comboitem label="MT" />
+											<comboitem label="PA" />
+											<comboitem label="PB" />
+											<comboitem label="PE" />
+											<comboitem label="PI" />
+											<comboitem label="PR" />
+											<comboitem label="RJ" />
+											<comboitem label="RN" />
+											<comboitem label="RO" />
+											<comboitem label="RR" />
+											<comboitem label="RS" />
+											<comboitem label="SC" />
+											<comboitem label="SE" />
+											<comboitem label="SP" />
+											<comboitem label="TO" />
+										</combobox>
+									</hlayout>
+									<hlayout>
+										<textbox width="200px" id="txtNacionalidade" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<combobox width="100px" id="cmbSexo" class="campoTxt">
+											<comboitem label="Masculino" />
+											<comboitem label="Feminino" />
+										</combobox>
+									</hlayout>
+								</row>
+				
+								<row>
+									<hlayout>
+										<label value="RG:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Data de Emissão:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Emissor:"  />
+									</hlayout>
+									<hlayout>
+										<label value="UF Emissão:"  />
+									</hlayout>
+								</row>
+				
+								<row>
+									<hlayout>
+										<textbox width="150px" id="txtRg" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<datebox width="150px" id="dbDataEmissao" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<textbox width="200px" id="txtEmissor" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<combobox width="100px" id="cmbUfEmissao" class="campoTxt">
+											<comboitem label="AC" />
+											<comboitem label="AL" />
+											<comboitem label="AM" />
+											<comboitem label="AP" />
+											<comboitem label="BA" />
+											<comboitem label="CE" />
+											<comboitem label="DF" />
+											<comboitem label="ES" />
+											<comboitem label="GO" />
+											<comboitem label="MA" />
+											<comboitem label="MG" />
+											<comboitem label="MS" />
+											<comboitem label="MT" />
+											<comboitem label="PA" />
+											<comboitem label="PB" />
+											<comboitem label="PE" />
+											<comboitem label="PI" />
+											<comboitem label="PR" />
+											<comboitem label="RJ" />
+											<comboitem label="RN" />
+											<comboitem label="RO" />
+											<comboitem label="RR" />
+											<comboitem label="RS" />
+											<comboitem label="SC" />
+											<comboitem label="SE" />
+											<comboitem label="SP" />
+											<comboitem label="TO" />
+										</combobox>
+									</hlayout>
+								</row>
+				
+								<row>
+									<hlayout>
+										<label value="Estado Civil:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Número de Dependentes"  />
+									</hlayout>
+									<hlayout>
+										<label value="Nome do Cônjuge:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Data de Nascimento do Cônjuge:"  />
+									</hlayout>
+								</row>
+				
+								<row>
+									<hlayout>
+										<combobox width="150px" id="cmbEstadoCivil" class="campoTxt">
+											<comboitem label="Solteiro(a)" />
+											<comboitem label="Casado(a)" />
+											<comboitem label="Divorciado(a)" />
+											<comboitem label="Desquitado(a)" />
+											<comboitem label="Viúvo(a)" />
+										</combobox>
+									</hlayout>
+									<hlayout>
+										<intbox width="50px" id="intNDependendes" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<textbox width="200px" id="txtNomeConjuge" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<datebox width="150px" id="dbDataNascConjuge" class="campoTxt" />
+									</hlayout>
+				
+								</row>
+				
+				
+								<row>
+									<hlayout>
+										<label value="CPF do Cônjuge:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Nome do Pai:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Nome da Mãe:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Endereço:"  />
+									</hlayout>
+								</row>
+				
+								<row>
+									<hlayout>
+										<textbox width="150px"
+											constraint="/[0-9]{3}[0-9]{3}[0-9]{3}[0-9]{2}/" id="txtCpfConjuge" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<textbox width="240px" id="txtNomePai" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<textbox width="240px" id="txtNomeMae" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<textbox width="240px" id="txtEndereco" class="campoTxt" />
+									</hlayout>
+								</row>
+				
+								<row>
+									<hlayout>
+										<label value="Número:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Complemento:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Bairro:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Cidade:"  />
+									</hlayout>
+								</row>
+				
+								<row>
+									<hlayout>
+										<textbox width="50px" id="txtNumero" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<textbox width="100px" id="txtComplemento" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<textbox width="150px" id="txtBairro" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<textbox width="200px" id="txtCidade" class="campoTxt" />
+									</hlayout>
+								</row>
+				
+								<row>
+									<hlayout>
+										<label value="Estado:"  />
+									</hlayout>
+									<hlayout>
+										<label value="CEP:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Escolaridade:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Tipo de Residência:"  />
+									</hlayout>
+								</row>
+				
+								<row>
+									<hlayout>
+										<combobox width="100px" id="cmbEstado" class="campoTxt">
+											<comboitem label="AC" />
+											<comboitem label="AL" />
+											<comboitem label="AM" />
+											<comboitem label="AP" />
+											<comboitem label="BA" />
+											<comboitem label="CE" />
+											<comboitem label="DF" />
+											<comboitem label="ES" />
+											<comboitem label="GO" />
+											<comboitem label="MA" />
+											<comboitem label="MG" />
+											<comboitem label="MS" />
+											<comboitem label="MT" />
+											<comboitem label="PA" />
+											<comboitem label="PB" />
+											<comboitem label="PE" />
+											<comboitem label="PI" />
+											<comboitem label="PR" />
+											<comboitem label="RJ" />
+											<comboitem label="RN" />
+											<comboitem label="RO" />
+											<comboitem label="RR" />
+											<comboitem label="RS" />
+											<comboitem label="SC" />
+											<comboitem label="SE" />
+											<comboitem label="SP" />
+											<comboitem label="TO" />
+										</combobox>
+									</hlayout>
+									<hlayout>
+										<textbox width="100px" id="txtCep" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<textbox width="150px" id="txtEscolaridade" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<combobox width="150px" id="cmbTipoResidencia" class="campoTxt">
+											<comboitem label="Própria" />
+											<comboitem label="Alugada" />
+											<comboitem label="Financiada" />
+											<comboitem label="Outro" />
+										</combobox>
+									</hlayout>
+								</row>
+				
+								<row>
+									<hlayout>
+										<label value="Valor da Residência"  />
+									</hlayout>
+									<hlayout>
+										<label value="Tempo de Residência Atual"  />
+									</hlayout>
+									<hlayout>
+										<label value="Tempo de Residência Anterior:"  />
+									</hlayout>
+								</row>
+				
+								<row>
+									<hlayout>
+										<decimalbox width="150px" id="dcValorResidencia" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<textbox id="txtTempoResidenciaAtual" width="150px" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<textbox width="150px"
+											id="txtTempoResidenciaAnterior" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<label value=" " />
+									</hlayout>
+								</row>
+				
+								<row>
+									<hlayout>
+										<label value="E-mail:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Telefone:"  />
+									</hlayout>
+									<hlayout>
+										<label value="Celular:"  />
+									</hlayout>
+								</row>
+				
+								<row>
+									<hlayout>
+										<textbox id="txtEmail" type="email" width="200px;" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<textbox width="150px" id="txtTelefone" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<textbox width="150px" id="txtCelular" class="campoTxt" />
+									</hlayout>
+									<hlayout>
+										<label value=" " />
+									</hlayout>
+								</row>
+				
+								<row>
+									<label value=" " />
+								</row>
+				
+							</rows>
+						</grid>
+	
+						</hlayout>
+	
+						<h:br /><h:br />
+	
+						<hlayout>
+							<grid>
+								<columns>
+									<column label="DADOS PROFISSIONAIS" width="250px" />
+								</columns>
+								<rows>
+									<row>
+										<hlayout>
+											<label value="Empresa:"  />
+										</hlayout>
+										<hlayout>
+											<label value="CNPJ:"  />
+										</hlayout>
+										<hlayout>
+											<label value="Matrícula:"  />
+										</hlayout>
+									</row>
+					
+									<row>
+										<hlayout>
+											<textbox width="240px" class="campoTxt" id="txtEmpresa" />
+										</hlayout>
+										<hlayout>
+											<textbox width="150px" class="campoTxt" id="txtCnpj" />
+										</hlayout>
+										<hlayout>
+											<textbox width="100px" class="campoTxt" id="txtMatricula" />
+										</hlayout>
+										<hlayout>
+											<label value=" " />
+										</hlayout>
+									</row>
+					
+									<row>
+										<hlayout>
+											<label value="Data de Admissão:"  />
+										</hlayout>
+										<hlayout>
+											<label value="Cargo:"  />
+										</hlayout>
+										<hlayout>
+											<label value="Seção:"  />
+										</hlayout>
+									</row>
+					
+									<row>
+										<hlayout>
+											<datebox width="150px" class="campoTxt" id="dbDataAdmissao" />
+										</hlayout>
+										<hlayout>
+											<textbox width="100px" class="campoTxt" id="txtCargo" />
+										</hlayout>
+										<hlayout>
+											<textbox width="100px" class="campoTxt" id="txtSecao" />
+										</hlayout>
+										<hlayout>
+											<label value=" " />
+										</hlayout>
+									</row>
+					
+					
+									<row>
+										<hlayout>
+											<label value="Endereço:"  />
+										</hlayout>
+										<hlayout>
+											<label value="Número:"  />
+										</hlayout>
+										<hlayout>
+											<label value="Complemento:"  />
+										</hlayout>
+									</row>
+					
+									<row>
+										<hlayout>
+											<textbox width="220px" class="campoTxt" id="txtEnderecoEmpresa" />
+										</hlayout>
+										<hlayout>
+											<textbox width="50px" class="campoTxt"	id="txtNumeroEmpresa" />
+										</hlayout>
+										<hlayout>
+											<textbox width="100px" class="campoTxt" id="txtComplementoEmpresa" />
+										</hlayout>
+										<hlayout>
+											<label value=" " />
+										</hlayout>
+									</row>
+					
+									<row>
+										<hlayout>
+											<label value="Bairro:"  />
+										</hlayout>
+										<hlayout>
+											<label value="Cidade:"  />
+										</hlayout>
+										<hlayout>
+											<label value="Estado:"  />
+										</hlayout>
+									</row>
+					
+									<row>
+										<hlayout>
+											<textbox width="100px" class="campoTxt" id="txtBairroEmpresa" />
+										</hlayout>
+										<hlayout>
+											<textbox width="150px" class="campoTxt" id="txtCidadeEmpresa" />
+										</hlayout>
+										<hlayout>
+											<combobox width="100px" id="cmbEstadoEmpresa">
+												<comboitem label="AC" />
+												<comboitem label="AL" />
+												<comboitem label="AM" />
+												<comboitem label="AP" />
+												<comboitem label="BA" />
+												<comboitem label="CE" />
+												<comboitem label="DF" />
+												<comboitem label="ES" />
+												<comboitem label="GO" />
+												<comboitem label="MA" />
+												<comboitem label="MG" />
+												<comboitem label="MS" />
+												<comboitem label="MT" />
+												<comboitem label="PA" />
+												<comboitem label="PB" />
+												<comboitem label="PE" />
+												<comboitem label="PI" />
+												<comboitem label="PR" />
+												<comboitem label="RJ" />
+												<comboitem label="RN" />
+												<comboitem label="RO" />
+												<comboitem label="RR" />
+												<comboitem label="RS" />
+												<comboitem label="SC" />
+												<comboitem label="SE" />
+												<comboitem label="SP" />
+												<comboitem label="TO" />
+											</combobox>
+										</hlayout>
+										<hlayout>
+											<label value=" " />
+										</hlayout>
+									</row>
+					
+									<row>
+										<hlayout>
+											<label value="CEP:"  />
+										</hlayout>
+										<hlayout>
+											<label value="Telefone:"  />
+										</hlayout>
+										<hlayout>
+											<label value="Ramal:"  />
+										</hlayout>
+									</row>
+					
+									<row>
+										<hlayout>
+											<textbox width="100px" class="campoTxt"
+												id="txtCepEmpresa" />
+										</hlayout>
+										<hlayout>
+											<textbox width="150px" class="campoTxt"
+												id="txtTelefoneEmpresa" />
+										</hlayout>
+										<hlayout>
+											<textbox width="150px" class="campoTxt"
+												id="txtRamalEmpresa" />
+										</hlayout>
+										<hlayout>
+											<label value=" " />
+										</hlayout>
+									</row>
+					
+									<row>
+										<hlayout>
+											<label value="Dia do Pagamento:"
+												 />
+										</hlayout>
+										<hlayout>
+											<label value="Valor do Pagamento:"
+												 />
+										</hlayout>
+										<hlayout>
+											<label value="Dia do Vale:"  />
+										</hlayout>
+										<hlayout>
+											<label value="Valor do Vale:"  />
+										</hlayout>
+									</row>
+					
+									<row>
+										<hlayout>
+											<intbox width="50px" class="campoTxt"
+												id="intDiaPagamento" />
+										</hlayout>
+										<hlayout>
+											<decimalbox width="100px" class="campoTxt"
+												id="dcValorPagamento" />
+										</hlayout>
+										<hlayout>
+											<intbox width="50px" class="campoTxt"
+												id="intDiaVale" />
+										</hlayout>
+										<hlayout>
+											<decimalbox width="100px" class="campoTxt"
+												id="dcValorVale" />
+										</hlayout>
+									</row>
+					
+									<row>
+										<hlayout>
+											<label value="Dia de Outras Rendas:"
+												 />
+										</hlayout>
+										<hlayout>
+											<label value="Valor de Outras Rendas:"
+												 />
+										</hlayout>
+										<hlayout>
+											<label value="Valor Total:"  />
+										</hlayout>
+									</row>
+					
+									<row>
+										<hlayout>
+											<intbox width="50px" class="campoTxt"
+												id="intDiaRenda" />
+										</hlayout>
+										<hlayout>
+											<decimalbox width="100px" class="campoTxt"
+												id="dcValorRenda" />
+										</hlayout>
+										<hlayout>
+											<decimalbox width="100px" class="campoTxt"
+												id="dcValorTotal" />
+										</hlayout>
+									</row>
+					
+								</rows>
+					
+							</grid>
+					
+						</hlayout>
+		
+		<h:br /><h:br />
+	
+		<hlayout>
+			<grid>
+				<columns>
+					<column label="DADOS BANCÁRIOS" width="250px" />
+				</columns>
+				<rows>
+					<row>
+						<hlayout>
+							<label value="Número do Banco:"  />
+						</hlayout>
+						<hlayout>
+							<label value="Banco:"  />
+						</hlayout>
+						<hlayout>
+							<label value="Agência:"  />
+						</hlayout>
+					</row>
+	
+					<row>
+						<hlayout>
+							<textbox width="50px" class="campoTxt"
+								id="txtNBanco" />
+						</hlayout>
+						<hlayout>
+							<textbox width="150px" class="campoTxt"
+								id="txtBanco" />
+						</hlayout>
+						<hlayout>
+							<textbox width="100px" class="campoTxt"
+								id="txtAgencia" />
+						</hlayout>
+					</row>
+					
+					<row>
+						<hlayout>
+							<label value="Conta Corrente:"  />
+						</hlayout>
+						<hlayout>
+							<label value="Data de Abertura:"  />
+						</hlayout>
+						<hlayout>
+							<label value="Telefone do Banco:"  />
+						</hlayout>
+					</row>
+	
+					<row>
+						<hlayout>
+							<textbox width="100px" class="campoTxt"
+								id="txtContaCorrente" />
+						</hlayout>
+						<hlayout>
+							<datebox width="150px" class="campoTxt"
+								id="dbDataAbertura" />
+						</hlayout>
+						<hlayout>
+							<textbox width="150px" class="campoTxt"
+								id="txtTelefoneBanco" />
+						</hlayout>
+					</row>
+				</rows>
+			</grid>
+		</hlayout>
+		
+		<h:br /><h:br />
+		
+		<hlayout>
+			<grid>
+				<columns>
+					<column label="REFERÊNCIAS" width="250px" />
+				</columns>
+				<rows>
+					<row>
+						<hlayout>
+							<label value="Nome:"  />
+						</hlayout>
+						<hlayout>
+							<label value="Telefone:"  />
+						</hlayout>
+					</row>
+	
+					<row>
+						<hlayout>
+							<textbox width="200px" class="campoTxt"
+								id="txtNomeRef1" />
+						</hlayout>
+						<hlayout>
+							<textbox width="150px" class="campoTxt"
+								id="txtFoneRef1" />
+						</hlayout>
+					</row>
+					
+					<row>
+						<hlayout>
+							<label value="Nome:"  />
+						</hlayout>
+						<hlayout>
+							<label value="Telefone:"  />
+						</hlayout>
+					</row>
+	
+					<row>
+						<hlayout>
+							<textbox width="200px" class="campoTxt"
+								id="txtNomeRef2" />
+						</hlayout>
+						<hlayout>
+							<textbox width="150px" class="campoTxt"
+								id="txtFoneRef2" />
+						</hlayout>
+					</row>
+					
+					<row>
+						<hlayout>
+							<label value="Nome:"  />
+						</hlayout>
+						<hlayout>
+							<label value="Telefone:"  />
+						</hlayout>
+					</row>
+	
+					<row>
+						<hlayout>
+							<textbox width="200px" class="campoTxt"
+								id="txtNomeRef3" />
+						</hlayout>
+						<hlayout>
+							<textbox width="150px" class="campoTxt"
+								id="txtFoneRef3" />
+						</hlayout>
+					</row>
+				</rows>
+			</grid>
+		</hlayout>
+		
+		<h:br /><h:br />
+		
+		<hlayout>
+			<grid>
+				<columns>
+					<column label="ACESSO AO SISTEMA" width="250px" />
+				</columns>
+				<rows>
+					<row>
+						<hlayout>
+							<label value="Login:"  />
+						</hlayout>
+						<hlayout>
+							<label value="Senha:"  />
+						</hlayout>
+						<hlayout>
+							<label value="Confirmar Senha:"  />
+						</hlayout>
+					</row>
+	
+					<row>
+						<hlayout>
+							<textbox width="200px" class="campoTxt"
+								id="txtLogin" />
+						</hlayout>
+						<hlayout>
+							<textbox width="150px" class="campoTxt"
+								id="txtSenha" />
+						</hlayout>
+						<hlayout>
+							<textbox width="150px" class="campoTxt"
+								id="txtConfSenha" />
+						</hlayout>
+					</row>
+					
+				</rows>
+			</grid>
+		</hlayout>
+		
+		<div>	
+			<toolbarbutton id="btnSalvar" label="Salvar Cliente" image="images/skin/database_save.png" sclass="botao"></toolbarbutton>
+			<toolbarbutton id="btnCancelar" label="Cancelar" image="images/skin/house.png" sclass="botao"></toolbarbutton>
+		</div>
+				</div>
+    			
+    			</div><!-- FIM DA DIV PRINCIPAL -->
+    			<div class="clear"></div>
+    			<div class="rodape">
+					<div style="width:980px; margin: auto; padding:15px;">
+						Bamesys 2013 - Todos os direitos reservados
+						<span style="display:inline; margin-left:400px;">Desenvolvido por FATEA 2013</span>
+					</div>
+				</div>
+    		    		
+    	</div><!-- FIM DA DIV CONTEUDO -->
+    </div><!-- FIM DA DIV TUDO -->
+
+    </window>
+
+</zk>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
+<?link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'?>
+<?page title="Bamesys - Sistema Administrativo"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="bamesys3.HomeComposer" style="height:100%;">
+    	<div class="tudo">
+    		<div class="conteudo">
+    			
+    		<div class="topo">
+				<div style="width:980px; margin: auto; padding-top:15px;">
+    				<h:img src="images/logo.png" />
+    			</div>
+			</div>
+				
+			<separator></separator>
+		
+			<div class="infos" id="barraInfo">
+				<a href="home.zul" class="bot"> VOLTAR AO MENU</a>
+				<a href="logout.zul" class="bot">SAIR</a>
+			</div>		
+				
+			<separator></separator>	
+    			
+    		<div class="principal">
+
+		        <div class="recurso">
+		        	<a href="usuarios.zul"><h:img src="images/botUsuarios.png" /></a>
+		        	<separator></separator>
+		        	Usuários
+		        </div>		        
+		        <div class="recurso">
+		        	<a href="pessoasFisicas.zul"><h:img src="images/botPFisica.png" /></a>
+		        	<separator></separator>
+		        	Pessoa Física
+		        </div>		        
+		        <div class="recurso">
+		        	<a href="pessoasJuridicas.zul"><h:img src="images/botPJuridica.png" /></a>
+		        	<separator></separator>
+		        	Pessoa Jurídica
+		        </div>		        
+		        <div class="recurso">
+		        	<a href="movimentacoes.zul"><h:img src="images/botMovimentacao.png" /></a>
+		        	<separator></separator>
+		        	Movimentações
+				</div>
+			
+					<div class="clear"></div>
+    		</div>
+    		
+    		<div class="rodape">
+				<div style="width:980px; margin: auto; padding:15px;">
+					Bamesys 2013 - Todos os direitos reservados
+					<span style="display:inline; margin-left:400px;">Desenvolvido por FATEA 2013</span>
+				</div>
+			</div>
+			</div>
+		</div>			
+
+    </window>
+
+</zk>

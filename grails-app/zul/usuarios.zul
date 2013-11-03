@@ -11,31 +11,32 @@
     xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
     <window apply="bamesys3.UsuariosComposer" style="height:100%;">
-
-        <div class="tudo">
-    		
+		<div class="tudo">
     		<div class="conteudo">
-    		
+    			
     			<div class="topo">
-    				<div style="width:980px; margin: auto; padding-top:15px;">
+					<div style="width:980px; margin: auto; padding-top:15px;">
     					<h:img src="images/logo.png" />
     				</div>
 				</div>
 				
 				<separator></separator>
-				
-				<div class="infos">
+		
+				<div class="infos" id="barraInfo">
+					<a href="home.zul" class="bot"> VOLTAR AO MENU</a>
 					<a href="logout.zul" class="bot">SAIR</a>
-				</div>			
+				</div>		
 				
 				<separator></separator>	
     			
-    			<div class="principal">  				
-    				
+    			<div class="principal">  
+    			
+    				<!-- LISTAGEM DE USUÁRIOS -->
+    							    				
     				<div id="divLista">
-    				<label value="Usuários" sclass="titulo" />
-    				<div style="text-align:right; width:940px; margin-bottom:10px;"><a href="" id="btnNovo" class="bot2">INSERIR</a></div>
-						
+	    				<label value="Usuários" sclass="titulo" />
+	    				<div style="text-align:right; width:940px; margin-bottom:10px;"><a href="" id="btnNovo" class="bot2">INSERIR</a></div>
+							
 						<separator> </separator>    		
 			    		<listbox id="lstUsuarios" emptyMessage="Nenhum Usuário Cadastrado" 
 							multiple="true" checkmark="false" mold="paging" pageSize="10" vflex="1"> 	
@@ -48,69 +49,68 @@
 			        		</listhead>				
 						</listbox>
     				</div>
-    		
+    				
+    				<!-- FORMULÁRIO DE CADASTRO -->    		
     			
     				<div id="divCadastro">	
-    				<label value="Cadastrar Usuário" sclass="titulo" />
-    				<separator> </separator>
-			        	<grid>
-			        		<columns>
+    					<label value="Cadastrar Usuário" sclass="titulo" />
+							
+						<grid>
+							<columns>
 								<column width="200px" />
 								<column value=""/>
 							</columns>
 						
 							<rows>
-							<row>
-								<label value="Código: " visible="false" />
-								<intbox id="id" value="0" visible="false" />
-							</row>
-						
-							<row>
-								<label value="Nome: " />
-								<textbox id="nome" maxlength="100" class="campoTxt" />					
-							</row>
+								<row>
+									<label value="Código: " visible="false" />
+									<intbox id="id" value="0" visible="false" />
+								</row>
 							
-							<row>
-								Grupo: 			
-								<combobox id="cmbGrupo" width="230px" class="combo">
-									<comboitem label="Administrador" value="administrador"/>									
-									<comboitem label="Corretor" value="corretor"/>
-									<comboitem label="Funcionário" value="funcionario"/>
-									<comboitem label="Gerente" value="gerente"/>
-									<comboitem label="Operador" value="operador"/>
-								</combobox>
-							</row>				
-						
-							<row>
-								<label value="Login: " />
-								<textbox id="login" maxlength="100" class="campoTxt"/>					
-							</row>
+								<row>
+									<label value="Nome: " />
+									<textbox id="nome" maxlength="100" class="campoTxt" />					
+								</row>
+								
+								<row>
+									Grupo: 			
+									<combobox id="cmbGrupo" width="230px" class="combo">
+										<comboitem label="Administrador" value="administrador"/>									
+										<comboitem label="Corretor" value="corretor"/>
+										<comboitem label="Funcionário" value="funcionario"/>
+										<comboitem label="Gerente" value="gerente"/>
+										<comboitem label="Operador" value="operador"/>
+									</combobox>
+								</row>				
 							
-							<row>
-								<label value="Senha: " />
-								<textbox id="senha" maxlength="100" type="password" class="campoTxt"/>
-							</row>
-						
-							<row>
-								<label value="Confirmar Senha: " />
-								<textbox id="confirmarSenha" maxlength="100" type="password" class="campoTxt" />
-							</row>
-														
+								<row>
+									<label value="Login: " />
+									<textbox id="login" maxlength="100" class="campoTxt"/>					
+								</row>
+								
+								<row>
+									<label value="Senha: " />
+									<textbox id="senha" maxlength="100" type="password" class="campoTxt"/>
+								</row>
+							
+								<row>
+									<label value="Confirmar Senha: " />
+									<textbox id="confirmarSenha" maxlength="100" type="password" class="campoTxt" />
+								</row>
 							</rows>
 						</grid>
-			
-					<separator> </separator>
-			
-					<hbox>
-						<toolbarbutton id="btnSalvar" image="images/skin/salvar.png" label="Salvar" />
-						<space spacing="20px" />
-						<toolbarbutton id="btnCancelar" image="images/skin/cancelar.png" label="Cancelar" />			
-					</hbox>
-				</div>
+							
+						<separator> </separator>
+				
+						<hbox>
+							<toolbarbutton id="btnSalvar" image="images/skin/salvar.png" label="Salvar" />
+							<space spacing="20px" />
+							<toolbarbutton id="btnCancelar" image="images/skin/cancelar.png" label="Cancelar" />			
+						</hbox>
+					</div>
     			
-    			<div class="clear"></div>
-    		
-    		</div>
+    				<div class="clear"></div>
+    			</div>
     		
     		<div class="rodape">
 				<div style="width:980px; margin: auto; padding:15px;">
