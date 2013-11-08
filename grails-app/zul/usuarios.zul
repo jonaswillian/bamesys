@@ -3,125 +3,165 @@
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
 <?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
 <?link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'?>
-<?page title="Gerenciamento de Usuários"?>
+<?page title="Gerenciamento de Usuários" ?>
+<zk xmlns:c="client" xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
-<zk xmlns="http://www.zkoss.org/2005/zul"
-    xmlns:h="http://www.w3.org/1999/xhtml"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+	<style dynamic="true">
+		.erro{font-weight:bold; color: #FA1515; margin-left:250px; }
+		.errogrid{font-weight:bold; color: #FA1515; width: 50px }
+		.sucesso{font-weight:bold; color: #48c30b; margin-left:250px;}
+	</style>
 
-    <window apply="bamesys3.UsuariosComposer" style="height:100%;">
+	<script>
+		<![CDATA[ function pwdValid(pwd2) { var valLabel =
+		jq("$lblConfirmacaoSenha"); if (pwd2.getValue() == "") {
+		zk.Widget.$(valLabel).setValue(""); } else if (pwd2.getValue()
+		!= zk.Widget.$(jq("$senha")).getValue()) {
+		zk.Widget.$(valLabel).setValue("Senhas não conferem !") } else {
+		zk.Widget.$(valLabel).setValue(" ") }; } ]]>
+    </script>
+
+	<window apply="bamesys.UsuariosComposer" style="height:100%;">
 		<div class="tudo">
-    		<div class="conteudo">
-    			
-    			<div class="topo">
-					<div style="width:980px; margin: auto; padding-top:15px;">
-    					<h:img src="images/logo.png" />
-    				</div>
-				</div>
-				
-				<separator></separator>
-		
-				<div class="infos" id="barraInfo">
-					<a href="home.zul" class="bot"> VOLTAR AO MENU</a>
-					<a href="logout.zul" class="bot">SAIR</a>
-				</div>		
-				
-				<separator></separator>	
-    			
-    			<div class="principal">  
-    			
-    				<!-- LISTAGEM DE USUÁRIOS -->
-    							    				
-    				<div id="divLista">
-	    				<label value="Usuários" sclass="titulo" />
-	    				<div style="text-align:right; width:940px; margin-bottom:10px;"><a href="" id="btnNovo" class="bot2">INSERIR</a></div>
-							
-						<separator> </separator>    		
-			    		<listbox id="lstUsuarios" emptyMessage="Nenhum Usuário Cadastrado" 
-							multiple="true" checkmark="false" mold="paging" pageSize="10" vflex="1"> 	
-							<listhead>
-			        			<listheader sort="auto" label="ID" />
-			        			<listheader sort="auto" label="Nome" />
-			        			<listheader sort="auto" label="Grupo" />
-			        			<listheader sort="auto" label="Login" />
-			        			<listheader sort="auto" label="Ações" />
-			        		</listhead>				
-						</listbox>
-    				</div>
-    				
-    				<!-- FORMULÁRIO DE CADASTRO -->    		
-    			
-    				<div id="divCadastro">	
-    					<label value="Cadastrar Usuário" sclass="titulo" />
-							
-						<grid>
-							<columns>
-								<column width="200px" />
-								<column value=""/>
-							</columns>
-						
-							<rows>
-								<row>
-									<label value="Código: " visible="false" />
-									<intbox id="id" value="0" visible="false" />
-								</row>
-							
-								<row>
-									<label value="Nome: " />
-									<textbox id="nome" maxlength="100" class="campoTxt" />					
-								</row>
-								
-								<row>
-									Grupo: 			
-									<combobox id="cmbGrupo" width="230px" class="combo">
-										<comboitem label="Administrador" value="administrador"/>									
-										<comboitem label="Corretor" value="corretor"/>
-										<comboitem label="Funcionário" value="funcionario"/>
-										<comboitem label="Gerente" value="gerente"/>
-										<comboitem label="Operador" value="operador"/>
-									</combobox>
-								</row>				
-							
-								<row>
-									<label value="Login: " />
-									<textbox id="login" maxlength="100" class="campoTxt"/>					
-								</row>
-								
-								<row>
-									<label value="Senha: " />
-									<textbox id="senha" maxlength="100" type="password" class="campoTxt"/>
-								</row>
-							
-								<row>
-									<label value="Confirmar Senha: " />
-									<textbox id="confirmarSenha" maxlength="100" type="password" class="campoTxt" />
-								</row>
-							</rows>
-						</grid>
-							
-						<separator> </separator>
-				
-						<hbox>
-							<toolbarbutton id="btnSalvar" image="images/skin/salvar.png" label="Salvar" />
-							<space spacing="20px" />
-							<toolbarbutton id="btnCancelar" image="images/skin/cancelar.png" label="Cancelar" />			
-						</hbox>
+			<div class="conteudo">
+
+				<div class="topo">
+					<div
+						style="width:980px; margin: auto; padding-top:15px;">
+						<h:img src="images/logo.png" />
 					</div>
-    			
-    				<div class="clear"></div>
-    			</div>
-    		
-    		<div class="rodape">
+				</div>
+
+				<separator></separator>
+
+				<div class="infos" id="barraInfo">
+					<a href="home.zul" class="bot">VOLTAR AO MENU</a>
+					<a href="logout.zul" class="bot">SAIR</a>
+				</div>
+
+				<!-- LISTAGEM DE USUÃRIOS -->
+
+				<div id="winLista">
+					<label value="Usuários" sclass="titulo" />
+					
+					<div style="text-align:right; width:940px; margin-bottom:10px;">
+						<toolbarbutton id="btnNovo" class="bot2" image="images/adicionar.png" label="Inserir"/>
+						<bandbox name="bdboxBuscaUsuario"
+							id="bdboxBuscaUsuario"
+							placeholder="Digite um nome para pesquisar"
+							style="margin-left:400px; width:300px" />
+					</div>
+
+					<listbox id="lstUsuarios"
+						emptyMessage="Nenhum Usuário Cadastrado" mold="paging" pageSize="10">
+						<listhead>
+							<listheader sort="auto" label="Id" />
+							<listheader sort="auto" label="Nome" />
+							<listheader sort="auto" label="Grupo" />
+							<listheader sort="auto" label="Login" />
+							<listheader sort="auto" label="Ações" />
+						</listhead>
+					</listbox>
+				</div>
+
+				<div id="winCadastro">
+					<label value="Cadastrar Usuário" sclass="titulo" />
+					<hlayout>
+						<label value="*Campos Obrigatórios"></label>
+
+					</hlayout>
+
+					<separator></separator>
+					<separator></separator>
+
+					<grid>
+						<columns>
+							<column label="Cadastro de Usuário"
+								width="200px" />
+						</columns>
+
+						<rows>
+							<row>
+								<label value="Código: " visible="false" />
+								<intbox id="id" value="0"
+									visible="false" />
+							</row>
+
+							<row>
+								<label value="Nome*: " />
+								<textbox name="nome" id="nome"
+									maxlength="100" class="campoTxt"/>
+							</row>
+
+							<row>
+								Grupo*:
+								<combobox name="cmbGrupo" id="cmbGrupo"
+									width="230px" class="campoTxt">
+									<comboitem label="Administrador"
+										value="administrador" />
+									<comboitem label="Corretor"
+										value="corretor" />
+									<comboitem label="Funcionário"
+										value="funcionario" />
+									<comboitem label="Gerente"
+										value="gerente" />
+									<comboitem label="Operador"
+										value="operador" />
+								</combobox>
+							</row>
+
+							<row>
+								<label value="Login*: " />
+								<textbox name="login" id="login"
+									maxlength="100" class="campoTxt"/>
+								<label id="lblLogin" value=""
+									sclass="errogrid" />
+							</row>
+
+							<row>
+								<label value="Senha*: " />
+								<textbox name="senha" id="senha"
+									maxlength="100" type="password" class="campoTxt"/>
+							</row>
+
+							<row>
+								<label value="Confirmar Senha*: " />
+								<textbox name="confirmarSenha"
+									id="confirmarSenha" maxlength="100" c:onChange='pwdValid(this)'
+									type="password" class="campoTxt"/>
+								<label id="lblConfirmacaoSenha" value=""
+									sclass="errogrid" />
+							</row>
+						</rows>
+					</grid>
+
+					<separator></separator>
+
+					<hbox>
+						<toolbarbutton id="btnSalvar"
+							image="images/salvar.png" label="Salvar" />
+						<space spacing="20px" />
+						<toolbarbutton id="btnCancelar"
+							image="images/cancelar.png" label="Cancelar" />
+					</hbox>
+				</div>
+
+				<div class="clear"></div>
+			</div>
+
+			<div class="rodape">
 				<div style="width:980px; margin: auto; padding:15px;">
 					Bamesys 2013 - Todos os direitos reservados
-					<span style="display:inline; margin-left:400px;">Desenvolvido por FATEA 2013</span>
+					<span style="display:inline; margin-left:400px;">
+						Desenvolvido por FATEA 2013
+					</span>
 				</div>
 			</div>
-    		    		
-    	</div>
-    </div>
 
-    </window>
+		</div>
+	</window>
 
 </zk>

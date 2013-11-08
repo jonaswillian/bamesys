@@ -1,0 +1,8 @@
+<zk>
+	<window id="winAviso"
+		title="ATENÇÃO: Veja os seus Lançamentos Futuros Abaixo"
+		border="normal" width="460px" apply="bamesys.AvisoLancamentosComposer"
+		position="center,center" closable="true"
+		action="show: slideDown;hide: slideUp">
+	</window>
+</zk>
